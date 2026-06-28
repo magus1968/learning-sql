@@ -1,0 +1,11 @@
+version: 1
+project:
+  toc:
+    # Главная страница
+    - file: docs/index.md
+    # Глава 2
+    - title: Глава 2. Создание и наполнение базы данных
+      file: docs/ch02.ipynb
+    # Глава 3
+    - title: Глава 3. Запросы
+      file: docs/ch03.ipynb

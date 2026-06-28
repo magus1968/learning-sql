@@ -1,0 +1,32 @@
+# See docs at: https://mystmd.org/guide/frontmatter
+version: 1
+project:
+  id: f6867171-591f-4c2a-8377-e5205a556f66
+  title: Изучаем SQL. Алан Болье 2021 3-e изд. O'REILLY
+  # description:
+  keywords:
+    - jupyter-book
+    - data-science
+    - sql
+  # authors:
+  #   - name: Алексей Смирнов
+  #     url: https://magus1968.github.io/Portfolio/
+  #     github: magus1968
+  
+  github: magus1968/learning-sql
+  # To autogenerate a Table of Contents, run "jupyter book init --write-toc"
+
+# Внешний файл оглавления
+extends:
+  - toc.yml
+
+site:
+  # template: article-theme
+  template: book-theme
+  # Кнопка в верхней панели сайта
+  # actions:
+    # - title: Портфолио
+      # url: https://magus1968.github.io/Portfolio/
+  # options:
+  #   favicon: favicon.ico
+  #   logo: site_logo.png
