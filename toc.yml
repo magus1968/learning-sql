@@ -8,4 +8,4 @@ project:
       file: docs/ch02.ipynb
     # Глава 3
     - title: Глава 3. Запросы
-      file: docs/ch03.ipynb
+      file: docs/ch03.md
