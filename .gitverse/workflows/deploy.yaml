@@ -13,23 +13,21 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          python-version: "3.11"
+          node-version: 18.x
 
-      - name: Install dependencies
-        run: |
-          pip install jupyter-book
+      - name: Install Jupyter Book (via myst)
+        run: npm install -g jupyter-book
 
-      - name: Build the book
-        run: |
-          jupyter-book build docs
+      - name: Build HTML Assets
+        run: jupyter-book build --html
 
       - name: Upload pages artifact
         uses: actions/upload-pages-artifact@v1
         with:
-          path: "docs/_build/html"
+          path: './_build/html'
 
   deploy:
     needs: build
