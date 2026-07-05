@@ -6,6 +6,9 @@ on:
       - main
   workflow_dispatch:
 
+env:
+  NODE_OPTIONS: --dns-result-order=ipv4first
+
 jobs:
   build:
     runs-on: ubuntu-latest
