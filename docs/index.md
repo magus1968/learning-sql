@@ -10,7 +10,10 @@
 
 Подсказку нашел в книге SQL. Pocket guide, 4-е изд. Элис Жао (O'Reilly) пер. 2024. В Главе 2 описывается подключение Python к базе данных через драйвер [mysql-connector-python](https://dev.mysql.com/doc/connector-python/en/). Но в итоге выбор пал на PyMySQL и SQLAlchemy.
 
-**Итоговое решение**: блокноты [Jupyter Notebook](https://jupyter.org/), [Python](https://www.python.org/) и [SQLAlchemy](https://www.sqlalchemy.org/) – из дистрибутива [Anaconda](https://www.anaconda.com/download); плюс драйвер-коннектор [PyMySQL](https://pypi.org/project/PyMySQL/) и [JupySQL](https://jupysql.readthedocs.io/en/latest/quick-start.html) для подсветки синтаксиса SQL.
+% An admonition containing a note
+:::{important} Итоговое решение
+Блокноты [Jupyter Notebook](https://jupyter.org/), [Python](https://www.python.org/) и [SQLAlchemy](https://www.sqlalchemy.org/) – из дистрибутива [Anaconda](https://www.anaconda.com/download); плюс драйвер-коннектор [PyMySQL](https://pypi.org/project/PyMySQL/) и [JupySQL](https://jupysql.readthedocs.io/en/latest/quick-start.html) для подсветки синтаксиса SQL.
+:::
 
 Вопрос вроде бы был уже решен, но тут появилась "подкожная" мысль, которая и стала причиной этого гайда: что если для доступа к блокнотам использовать не просто GitHub, а создать статический сайт с функцией поиска?
 
@@ -22,7 +25,8 @@
 
 На случай если кому-то пригодятся мои изыскания решил поделиться.
 
-Оффтоп: для изучения/прокачки SQL много любопытных ресурсов:
+:::{note .simple .dropdown icon=false open=true} Оффтоп: 
+Для изучения/прокачки SQL много любопытных ресурсов:
 - [Интерактивный онлайн курс по SQL](https://sql-academy.org/ru) от SQL Academy
 - [Симулятор SQL](https://karpov.courses/simulator-sql) от karpov.courses
 - [100-Year QA-Textbook 2026: Базы данных для тестировщиков](https://mentorpiece.ru/100/db/) от Mentorpiece Education
@@ -32,6 +36,7 @@
 - [Learn SQL](https://www.w3schools.com/sql/default.asp) от W3 schools
 
 Просто на данном этапе я выбрал книгу, изредка подглядывая на эти ресурсы.
+:::
 
 ## Исходные данные
 
