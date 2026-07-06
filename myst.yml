@@ -2,7 +2,7 @@
 version: 1
 project:
   id: f6867171-591f-4c2a-8377-e5205a556f66
-  title: Изучаем SQL. Алан Болье 2021 3-e изд. O'REILLY
+  title: Изучаем SQL. Алан Болье
   # description:
   keywords:
     - jupyter-book
