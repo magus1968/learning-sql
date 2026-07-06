@@ -38,6 +38,7 @@
 **Просто на данном этапе я выбрал книгу, изредка подглядывая на эти ресурсы**.
 :::
 
+---
 ## Исходные данные
 
 | Product                                   | Describe                                                                                                                                                                                                                                                                                                                                                                                                                    |
@@ -55,15 +56,15 @@
 ---
 ## 1. Настройка рабочего пространства
 
-- **Anaconda Navigator** должен быть закрыт:
+- **Anaconda Navigator** должен быть закрыт:  
   *иначе Windows может выдать ошибку и прервать выполнение*.
-- **Anaconda Prompt** запускаем _**БЕЗ**_ прав администратора:
+- **Anaconda Prompt** запускаем _**БЕЗ**_ прав администратора:  
   *так как [Anaconda Distribution](https://www.anaconda.com/download) установлен по умолчанию для пользователя*.
 
 ### 1.1. Создание изолированного окружения
 на базе [**Anaconda Metapackage**](https://www.anaconda.com/docs/getting-started/advanced-install/install-metapackage).
 
-```sh
+```{code} bash
 # Anaconda Prompt: (base) C:\Users\Preinstalled>
 
 # Создаем окружение с базовым набором Anaconda Metapackage
@@ -85,7 +86,7 @@ conda activate ds-book
 | [JupySQL](https://jupysql.readthedocs.io/en/latest/quick-start.html#)      | Для подсветки синтаксиса SQL                                                                                          |
 | [jupyterlab_myst](https://mystmd.org/guide/quickstart-jupyter-lab-myst)    | Визуализирует MyST-разметку (предупреждения, вкладки, панели) прямо внутри интерфейса **Jupyter Lab** во время работы |
 
-```sh
+```{code} bash
 # Anaconda Prompt: (ds-book) C:\Users\Preinstalled>
 
 # 1. Установка Jupyter Book для компиляции сайта
@@ -114,7 +115,7 @@ _Олдскульная привычка – отделять мух от кот
 
 Поскольку мы в Windows, папку проекта можем создать через штатный Проводник. Или продолжить в терминале:
 
-```sh
+```{code} bash
 # Anaconda Prompt: (ds-book) C:\Users\Preinstalled>
 
 C:\Users\Preinstalled>D:   # перейти на датадиск
@@ -125,11 +126,12 @@ D:\>cd GitHub\Books        # перейти в родительскую папк
 mkdir Learning-SQL && cd Learning-SQL
 ```
 
+---
 ### 2.2. Инициализация Jupyter Book
 
 _[Инициализируем](https://jupyterbook.org/stable/get-started/init/) Jupyter Book **БЕЗ** запуска локального веб-сервера_
 
-```sh
+```{code} bash
 # Anaconda Prompt: (ds-book) D:\GitHub\Books\Learning-SQL>
 
 jupyter book init
@@ -160,6 +162,7 @@ You can build all content with: jupyter book build --all
 ```
 :::
 
+---
 ### 2.3. Создание структуры проекта
 
 Поскольку репозиторий ещё не инициализирован, по-прежнему можем использовать штатный Проводник Windows.
@@ -182,35 +185,42 @@ You can build all content with: jupyter book build --all
    ├── schemas/            # можно положить структуру репозитория
    ├── environment.yml     # зависимости проекта в окружении conda
    ├── .gitignore
+   ├── LICENSE             # MIT License
    ├── myst.yml            # конфигурационный файл
    ├── README.md
    └── toc.yml             # table of contents
    ```
 
+---
 ### 2.4. Jupyter Lab
 Для создания контента и настройки проекта будем использовать [Jupyter Lab](https://jupyterlab.readthedocs.io/en/latest/#). Удобнее запустить сервер Jupyter Lab в корне диска D:\ – таким образом будет возможность перемещаться между проектами.
 
 Однако, чтобы не засорять корневую директорию диска временными файлами Jupyter, рекомендуется запускать Jupyter Lab в папке проекта
 
-```sh
+```{code} bash
 # Anaconda Prompt: (ds-book) D:\GitHub\Books\Learning-SQL>
+
 jupyter lab
 ```
 По завершении сеанса Jupyter Lab обязательно закрываем через **Shut Down**.
 Если сервер в терминале сам не закрылся – в командной строке **Ctrl + C** –> подтвердить **Y** –> **Enter**.
 
+---
 ### 2.5. [Создание контента](https://jupyterbook.org/stable/get-started/create-content/)
 Создаем обязательный intro.md и может даже первый блокнот .ipynb: например, чтобы визуально проверить устраивает ли структура сайта.
 
+---
 ### 2.6. Настройка проекта
 В зависимости от выбранных предпочтений, настраиваем конфигурационный файл myst.yml и файл содержания [toc.yml](https://jupyterbook.org/stable/authoring/table-of-contents/).
 
+---
 ## 3. Локальное тестирование сайта
 
 [Запускаем локальный веб-сервер](https://jupyterbook.org/stable/get-started/build-websites/), чтобы посмотреть как выглядит результат в браузере.
 
-```sh
+```{code} bash
 # Anaconda Prompt: (ds-book) D:\GitHub\Books\Learning-SQL>
+
 jupyter book start
 ```
 *Для остановки сервера в терминале нажать `Ctrl + C` (в Git Bash может потребоваться нажать два раза).*
