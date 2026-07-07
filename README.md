@@ -58,8 +58,9 @@ Host gitverse.ru
 Выполните последовательно в терминале:
 
 ```bash
-# 1. Клонируем репозиторий и переходим в папку проекта
-git clone git@github.com:magus1968/learning-sql.git
+# 1. Клонируем репозиторий по SSH и переходим в папку проекта
+git clone git@github.com:magus1968/learning-sql.git    # c GitHub
+git clone git@gitverse.ru:magus1968/learning-sql.git   # c GitVerse
 cd learning-sql
 
 # 2. Создаем окружение на базе стандартного Anaconda Metapackage

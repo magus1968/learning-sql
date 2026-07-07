@@ -30,3 +30,6 @@ site:
   # options:
   #   favicon: favicon.ico
   #   logo: site_logo.png
+  # nav:
+  #   - title: GitVerse
+  #     url: https://gitverse.ru/alexey-sm/learning-sql

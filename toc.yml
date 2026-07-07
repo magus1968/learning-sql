@@ -3,9 +3,16 @@ project:
   toc:
     # Главная страница
     - file: docs/index.md
+    # Get started
+    - title: Быстрый старт
+      children:
+        - file: docs/intro/intro-source.md
+        - file: docs/intro/intro1-environment.md
+        - file: docs/intro/intro2-project.md
+        - file: docs/intro/intro3-start.md
     # Глава 2
     - title: Глава 2. Создание и наполнение базы данных
       file: docs/ch02.ipynb
     # Глава 3
     - title: Глава 3. Запросы
-      file: docs/ch03.md
+      file: docs/ch03.ipynb
