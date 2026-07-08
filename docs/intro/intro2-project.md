@@ -63,21 +63,26 @@ You can build all content with: jupyter book build --all
    # Пример структуры
    
    Learning-SQL/
-   ├── .github/            # будет создан автоматически, раздел №__
+   ├── .github/            # деплой в GitHub: создается автоматически
+   │   └── workflows/      # командой `jupyter book init --gh-pages`
+   │       └── deploy.yml
+   ├── .gitverse/          # деплой в GitVerse
    │   └── workflows/
    │       └── deploy.yml
    ├── docs/
+   │   ├── ch/             # сюда из корня docs/ можно убрать главы
    │   ├── data/           # датасеты
+   │   ├── intro/          # файлы Get Started
    │   ├── media/          # скриншоты
-   │   ├── ch01.ipynb      # глава 1
+   │   ├── ch02.ipynb      # глава 2
+   │   ├── ch03.ipynb      # глава 3
    │   └── index.md        # introduction
    ├── helpers/
    │   └── db_connect.py   # cюда можем написать логику подключения к БД
    ├── notebooks/          # папка для черновиков (игнорируется Git)
    ├── schemas/            # можно положить структуру репозитория
-   ├── environment.yml     # зависимости проекта в окружении conda
    ├── .gitignore
-   ├── LICENSE             # MIT License
+   ├── LICENSE
    ├── myst.yml            # конфигурационный файл
    ├── README.md
    └── toc.yml             # table of contents
