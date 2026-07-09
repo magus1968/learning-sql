@@ -1,6 +1,9 @@
 # SQL & SQLAlchemy vs Jupyter Book
 
-## Задача
+:::{figure} media/cover.png
+:align: left
+:width: 30%
+:::
 
 Для проработки базовых знаний по MySQL, полученных на курсе Аналитик данных в Skillbox, выбрал из обзора [Лучшие книги по SQL](https://rutube.ru/video/d1430088a4d553b543ded84a471c6a8b/) на Rutube топ обзора: Изучаем SQL. Генерация, выборка и обработка данных, 3-е изд. Алан Болье пер. 2021.
 
