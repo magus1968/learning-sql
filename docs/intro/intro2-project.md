@@ -2,17 +2,21 @@
 
 ## 2.1. Подготовка папки проекта
 
-_Олдскульная привычка – отделять мух от котлет:  
-системный диск `C:\` – для программ; для данных (проектов) – диск `D:\`_
+:::{note} Олдскульная привычка – отделять мух от котлет:
+:class: dropdown
+:open: true
+- Системный диск `C:\` – для программ;
+- Для данных (проектов) – диск `D:\`
+:::
 
 Поскольку мы в Windows, папку проекта можем создать через штатный Проводник. Или продолжить в терминале:
 
-```{code} bash
-# Anaconda Prompt: (ds-book) C:\Users\Preinstalled>
+```bash
+# Anaconda Prompt: (ds-book) C:\Users\YOUR_USERNAME>
 
-C:\Users\Preinstalled>D:   # перейти на датадиск
-D:\>dir                    # просмотреть содержимое родителя
-D:\>cd GitHub\Books        # перейти в родительскую папку проекта
+C:\Users\YOUR_USERNAME>D:   # перейти на датадиск
+D:\>dir                     # просмотреть содержимое родителя
+D:\>cd GitHub\Books         # перейти в родительскую папку проекта
 
 # создать папку проекта и (&&) перейти в нее
 mkdir Learning-SQL && cd Learning-SQL
@@ -27,7 +31,7 @@ _[Инициализируем](https://jupyterbook.org/stable/get-started/init/
 # Anaconda Prompt: (ds-book) D:\GitHub\Books\Learning-SQL>
 
 jupyter book init
-# На вопрос: Would you like to run jupyter book start now?" отвечаем `n`
+# Would you like to run jupyter book start now?" – Отвечаем `n`
 ```
 
 :::{note .simple .dropdown icon=false open=false} Команда `init` спросит, хотим ли мы запустить команду `start`, которая запускает локальный веб-сервер для отображения нашего проекта. Мы выйдем из программы, нажав клавиши `n` и `Enter`, поскольку у нас пока нет контента для просмотра!
@@ -63,29 +67,29 @@ You can build all content with: jupyter book build --all
    # Пример структуры
    
    Learning-SQL/
-   ├── .github/            # деплой в GitHub: создается автоматически
-   │   └── workflows/      # командой `jupyter book init --gh-pages`
+   ├── .github/               # деплой в GitHub: создается автоматически
+   │   └── workflows/         # командой `jupyter book init --gh-pages`
    │       └── deploy.yml
-   ├── .gitverse/          # деплой в GitVerse
+   ├── .gitverse/             # деплой в GitVerse
    │   └── workflows/
-   │       └── deploy.yml
+   │       └── deploy.yml     # возможно лучше переименовать
    ├── docs/
-   │   ├── ch/             # сюда из корня docs/ можно убрать главы
-   │   ├── data/           # датасеты
-   │   ├── intro/          # файлы Get Started
-   │   ├── media/          # скриншоты
-   │   ├── ch02.ipynb      # глава 2
-   │   ├── ch03.ipynb      # глава 3
-   │   └── index.md        # introduction
+   │   ├── ch/                # сюда из корня docs/ можно убрать главы
+   │   ├── data/              # датасеты
+   │   ├── intro/             # файлы Get Started
+   │   ├── media/             # скриншоты
+   │   ├── ch02.ipynb         # глава 2
+   │   ├── ch03.ipynb         # глава 3
+   │   └── index.md           # introduction
    ├── helpers/
-   │   └── db_connect.py   # cюда можем написать логику подключения к БД
-   ├── notebooks/          # папка для черновиков (игнорируется Git)
-   ├── schemas/            # можно положить структуру репозитория
+   │   └── db_connect.py      # cюда можем написать логику подключения к БД
+   ├── notebooks/             # папка для черновиков (игнорируется Git)
+   ├── schemas/               # можно положить структуру репозитория
    ├── .gitignore
-   ├── LICENSE
-   ├── myst.yml            # конфигурационный файл
+   ├── LICENSE                # MIT
+   ├── myst.yml               # конфигурационный файл
    ├── README.md
-   └── toc.yml             # table of contents
+   └── toc.yml                # файл содержания (table of contents)
    ```
 
 ---
@@ -102,12 +106,111 @@ jupyter lab
 По завершении сеанса Jupyter Lab обязательно закрываем через **Shut Down**.
 Если сервер в терминале сам не закрылся – в командной строке **Ctrl + C** –> подтвердить **Y** –> **Enter**.
 
+:::{seealso} Чуть не забыл
+В Jupyter Lab на вкладке Extension Manager нужно найти и добавить `jupyterlab_myst`
+:::
+                                                                           
 ---
-## 2.5. [Создание контента](https://jupyterbook.org/stable/get-started/create-content/)
-Создаем обязательный intro.md и может даже первый блокнот .ipynb: например, чтобы визуально проверить устраивает ли структура сайта.
+## 2.5. Создание контента
+
+Создаем обязательный [intro.md](https://jupyterbook.org/stable/get-started/create-content/) и может даже первый блокнот .ipynb: посмотреть удобство структуры сайта.
+
+:::{code} markdown
+:filename: intro.md
+# Introduction
+
+I am a book about ... something!
+:::
 
 ---
 ## 2.6. Настройка проекта
-В зависимости от выбранных предпочтений, настраиваем конфигурационный файл myst.yml и файл содержания [toc.yml](https://jupyterbook.org/stable/authoring/table-of-contents/).
+
+- Конфигурационный файл [myst.yml](https://jupyterbook.org/stable/build-and-publish/website/)
+- Файл содержания [toc.yml](https://jupyterbook.org/stable/authoring/table-of-contents/).
+
+:::{note} Примечание
+:class: dropdown
+:open: true
+
+Переписывать документацию смысла нет.
+
+Если структура `toc.yml` в принципе понятна после раздела [Table of contents structure](https://jupyterbook.org/stable/authoring/table-of-contents/).
+
+То настройка конфигурации `myst.yml` рассматривается во многих разделах: [Initialise a project](https://jupyterbook.org/stable/get-started/init/), [Build a website](https://jupyterbook.org/stable/get-started/build-websites/), [Get started with websites](https://jupyterbook.org/stable/build-and-publish/website/#configure-site-and-page-options), [Web Navigation, Structure, and Menus](https://mystmd.org/guide/website-navigation#website-layout), [Website Themes & Templates](https://mystmd.org/guide/website-templates#change-site-templates), [Content frontmatter options](https://mystmd.org/guide/frontmatter) и точно где-то ещё.
+
+Но свои шаблоны-заготовки выложу.
+:::
+
+::::{seealso} myst.yml
+:class: dropdown
+:open: false
+:icon: false
+
+:::{code} yaml
+:filename: myst.yml
+
+# See docs at: https://mystmd.org/guide/frontmatter
+version: 1
+project:
+  id: 4da9cb15-177c-41f5-8c4e-6a24b4e87eab
+  # title: An example Jupyter Book
+  # description: A collection of files that build up a book
+  keywords:
+    - jupyter-book
+    - something-else
+  authors:
+    - name: Jo the Jovyan
+    - name: Planet Jupyter
+  github: captain-jupyter/my-book
+  # plugins: []
+
+  extends:                    # содержание в отдельный файл
+  - toc.yml                   # файл содержания (table of contents)
+
+site:
+  # template: article-theme
+  template: book-theme
+  # title:
+  # options:
+  #   favicon: favicon.ico
+  #   logo: site_logo.png     # или site-logo.svg
+  nav:                        # навигация верхнего уровня
+    - title: Internal page
+      url: /website-metadata
+  actions:                    # кнопки действий в заголовке сайта
+    - title: Learn More
+      url: https://mystmd.org/guide
+  # domains: []
+:::
+::::
+
+::::{note} toc.yml
+:class: dropdown
+:open: false
+:icon: false
+
+:::{code} yaml
+:filename: toc.yml
+
+version: 1
+project:
+  toc:
+    # Главная страница
+    - file: docs/index.md
+    # Get started
+    - title: Быстрый старт
+      children:
+        - file: docs/intro/intro-source.md
+        - file: docs/intro/intro1-environment.md
+        - file: docs/intro/intro2-project.md
+        - file: docs/intro/intro3-start.md
+    # Глава 2
+    - title: Глава 2. Создание и наполнение базы данных
+      file: docs/ch02.ipynb
+    # Глава 3
+    - title: Глава 3. Запросы
+      file: docs/ch03.ipynb
+:::
+::::
 
 ---

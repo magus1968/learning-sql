@@ -5,13 +5,13 @@
 :width: 30%
 :::
 
-Для проработки базовых знаний по MySQL, полученных на курсе Аналитик данных в Skillbox, выбрал из обзора [Лучшие книги по SQL](https://rutube.ru/video/d1430088a4d553b543ded84a471c6a8b/) на Rutube топ обзора: Изучаем SQL. Генерация, выборка и обработка данных, 3-е изд. Алан Болье пер. 2021.
+Для проработки базовых знаний по MySQL, полученных на курсе Аналитик данных в Skillbox, выбрал из обзора [Лучшие книги по SQL](https://rutube.ru/video/d1430088a4d553b543ded84a471c6a8b/) на Rutube топ обзора: [Изучаем SQL. Генерация, выборка и обработка данных, 3-е изд. Алан Болье](https://shultais.education/blog/sql-books/learn-sql) (O'Reilly) пер. 2021.
 
 Возник вопрос: где делать практику? Чтобы была возможность вернуться: подсмотреть/вспомнить код (запрос) и увидеть вывод (результат запроса).
 - В книге используется клиент командной строки mysql (MySQL 8.0 Command Line Client) – но тогда не сохранится ни код (запрос), ни вывод. Можно конечно использовать логирование в текстовый файл с помощью команды tee, но мне этот способ оказался менее удобен в сравнении с итоговым решением.
 - Можно использовать графический IDE, например, DBeaver CE – код сохранится, но вывод нет. По крайней мере в версии Community инструмента SQL Notebook нет.
 
-Подсказку нашел в книге SQL. Pocket guide, 4-е изд. Элис Жао (O'Reilly) пер. 2024. В Главе 2 описывается подключение Python к базе данных через драйвер [mysql-connector-python](https://dev.mysql.com/doc/connector-python/en/). Но в итоге выбор пал на PyMySQL и SQLAlchemy.
+Подсказку нашел в книге [_SQL. Pocket guide, 4-е изд. Элис Жао_](https://www.piter.com/collection/bazy-dannyh/product/sql-pocket-guide-4-e-izd) (O'Reilly) пер. 2024. В Главе 2 описывается подключение Python к базе данных через драйвер [mysql-connector-python](https://dev.mysql.com/doc/connector-python/en/). Но в итоге выбор пал на PyMySQL и SQLAlchemy.
 
 % An admonition containing a note
 :::{important} Итоговое решение
