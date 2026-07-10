@@ -103,11 +103,11 @@ You can build all content with: jupyter book build --all
 
 jupyter lab
 ```
-По завершении сеанса Jupyter Lab обязательно закрываем через **Shut Down**.
-Если сервер в терминале сам не закрылся – в командной строке **Ctrl + C** –> подтвердить **Y** –> **Enter**.
+По завершении сеанса Jupyter Lab обязательно закрываем через **Shut Down**.  
+Если сервер в терминале сам не закрылся – в командной строке {kbd}`Ctrl` + {kbd}`C` –> подтвердить {kbd}`Y` –> {kbd}`Enter`.
 
 :::{seealso} Чуть не забыл
-В Jupyter Lab на вкладке Extension Manager нужно найти и добавить `jupyterlab_myst`
+В Jupyter Lab на вкладке **Extension Manager** нужно найти и установить расширение `jupyterlab_myst`
 :::
                                                                            
 ---
