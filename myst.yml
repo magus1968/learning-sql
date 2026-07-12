@@ -4,15 +4,15 @@ project:
   id: f6867171-591f-4c2a-8377-e5205a556f66
   title: Изучаем SQL. Алан Болье
   # description:
-  keywords:
-    - jupyter-book
-    - data-science
-    - sql
+  # keywords:   # убрал, чтобы не отображались в abstract
+    # - jupyter-book
+    # - data-science
+    # - sql
   # authors:
   #   - name: Алексей Смирнов
   #     url: https://magus1968.github.io/Portfolio/
   #     github: magus1968
-  
+
   github: magus1968/learning-sql
   # To autogenerate a Table of Contents, run "jupyter book init --write-toc"
 
