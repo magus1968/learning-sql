@@ -153,6 +153,7 @@ dependencies:
   - nbformat=5.10.4
   - nest-asyncio2=1.7.2
   - nodejs=26.5.0
+  - notebook=7.4.5
   - notebook-shim=0.2.4
   - numpy=2.5.1
   - onemkl-license=2026.1.0
