@@ -171,8 +171,6 @@ dependencies:
   - pixman=0.46.4
   - platformdirs=4.10.0
   - ploomber-core=0.2.27
-  - polars=1.42.1
-  - polars-runtime-32=1.42.1
   - posthog=7.22.1
   - prettytable=3.18.0
   - prometheus_client=0.25.0
@@ -254,5 +252,5 @@ dependencies:
   - zlib-ng=2.3.3
   - zstd=1.5.7
   - pip:
+      - "polars[rtcompat]==1.42.1"
       - scipy==1.18.0
-prefix: C:\Users\Mage\anaconda3\envs\ds-book

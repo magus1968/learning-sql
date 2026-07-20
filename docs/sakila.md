@@ -24,11 +24,7 @@ abbreviations:
     JupySQL: Run & highlight SQL in Jupyter
 ---
 
-- [x] _Добавить визуал `SHOW FULL TABLES`: ADATA\Books\sql\notebooks\sakila-en.a4.pdf_
-- [x] _Добавить sakila.md в `toc.yml`_
-- [x] _Скорректировать `sakila.pbix` в соответствие с `sakila-structure.png`_
 - [ ] _Проверить `sakila.pbix` на соответствие `sakila.mwb`_
-- [ ] _Может этот файл сделать в `.ipynb`?_
 
 **Sakila** – это классическая учебная база данных, разработанная командой MySQL для демонстрации возможностей реляционных СУБД. Она имитирует реальные бизнес-процессы компании начала 2000-х годов, занимающейся прокатом DVD-дисков. 
 
