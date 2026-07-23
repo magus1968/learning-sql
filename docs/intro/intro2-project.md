@@ -1,29 +1,28 @@
-# 2. Создание проекта
-
-## 2.1. Подготовка папки проекта
-
-:::{note} Олдскульная привычка – отделять мух от котлет:
-:class: dropdown
-:open: true
-- Системный диск `C:\` – для программ;
-- Для данных (проектов) – диск `D:\`
-:::
-
-Поскольку мы в Windows, папку проекта можем создать через штатный Проводник. Или продолжить в терминале:
-
-```bash
-# Anaconda Prompt: (ds-book) C:\Users\YOUR_USERNAME>
-
-C:\Users\YOUR_USERNAME>D:   # перейти на датадиск
-D:\>dir                     # просмотреть содержимое родителя
-D:\>cd GitHub\Books         # перейти в родительскую папку проекта
-
-# создать папку проекта и (&&) перейти в нее
-mkdir Learning-SQL && cd Learning-SQL
-```
-
 ---
-## 2.2. Инициализация Jupyter Book
+title: 2. Создание проекта
+subtitle: SQL Lab in JupyterLab
+# license: CC-BY-4.0
+github: https://github.com/magus1968/learning-sql
+subject: Technical Portfolio
+# subject: SQL Learning & Tooling
+venue: GitHub & GitVerse Pages
+# abstract: |
+#   Забегая вперед отмечу, что чистый файл зависимостей `environment.yml` создать пришлось. Но, во-первых, на старте его не было, а во-вторых, это гайд как создать с нуля. Поехали.
+authors:
+  - name: Alex Smirnov
+    email: a@smirnovs.pro
+    corresponding: true
+    affiliations: Data & BI Analyst
+date: 2026-07-23
+abbreviations:
+    MyST: Markedly Structured Text
+    Jupyter Book: Build static Web-books
+    JupySQL: Run & highlight SQL in Jupyter
+    Pandas: Библиотека Python для анализа и обработки данных
+    Polars: Мощный аналог Pandas на Rust/Python
+---
+
+## 2.1. Инициализация Jupyter Book
 
 _[Инициализируем](https://jupyterbook.org/stable/get-started/init/) Jupyter Book **БЕЗ** запуска локального веб-сервера_
 
@@ -34,7 +33,7 @@ jupyter book init
 # Would you like to run jupyter book start now?" – Отвечаем `n`
 ```
 
-:::{note .simple .dropdown icon=false open=false} Команда `init` спросит, хотим ли мы запустить команду `start`, которая запускает локальный веб-сервер для отображения нашего проекта. Мы выйдем из программы, нажав клавиши `n` и `Enter`, поскольку у нас пока нет контента для просмотра!
+:::{note .simple .dropdown icon=false open=false} Команда `init` спросит, хотим ли запустить локальный веб-сервер для отображения проекта. Выходим из программы, нажав {kbd}`n` и {kbd}`Enter` поскольку контента для просмотра у нас пока нет!
 
 ```sh
 (ds-book) D:\GitHub\Books\Learning-SQL>jupyter book init
@@ -59,7 +58,7 @@ You can build all content with: jupyter book build --all
 :::
 
 ---
-## 2.3. Создание структуры проекта
+## 2.2. Создание структуры проекта
 
 Поскольку репозиторий ещё не инициализирован, по-прежнему можем использовать штатный Проводник Windows.
 
@@ -70,9 +69,6 @@ You can build all content with: jupyter book build --all
    ├── .github/               # деплой в GitHub: создается автоматически
    │   └── workflows/         # командой `jupyter book init --gh-pages`
    │       └── deploy.yml
-   ├── .gitverse/             # деплой в GitVerse
-   │   └── workflows/
-   │       └── deploy.yml     # возможно лучше переименовать
    ├── docs/
    │   ├── ch/                # сюда из корня docs/ можно убрать главы
    │   ├── data/              # датасеты
@@ -84,7 +80,7 @@ You can build all content with: jupyter book build --all
    ├── helpers/
    │   └── db_connect.py      # cюда можем написать логику подключения к БД
    ├── notebooks/             # папка для черновиков (игнорируется Git)
-   ├── schemas/               # можно положить структуру репозитория
+   ├── schemas/               # например для схем sakila: .mwb .pbix etc.
    ├── .gitignore
    ├── LICENSE                # MIT
    ├── myst.yml               # конфигурационный файл
@@ -93,8 +89,9 @@ You can build all content with: jupyter book build --all
    ```
 
 ---
-## 2.4. Jupyter Lab
-Для создания контента и настройки проекта будем использовать [Jupyter Lab](https://jupyterlab.readthedocs.io/en/latest/#). Удобнее запустить сервер Jupyter Lab в корне диска D:\ – таким образом будет возможность перемещаться между проектами.
+       
+## 2.3. Jupyter Lab
+Для создания контента и настройки проекта будем использовать [Jupyter Lab](https://jupyterlab.readthedocs.io/en/latest/#). Удобнее запустить сервер Jupyter Lab в корне диска `D:\` – таким образом будет возможность перемещаться между проектами.
 
 Однако, чтобы не засорять корневую директорию диска временными файлами Jupyter, рекомендуется запускать Jupyter Lab в папке проекта
 
@@ -104,12 +101,13 @@ You can build all content with: jupyter book build --all
 jupyter lab
 ```
 По завершении сеанса Jupyter Lab обязательно закрываем через **Shut Down**.  
-Если сервер в терминале сам не закрылся – в командной строке {kbd}`Ctrl` + {kbd}`C` –> подтвердить {kbd}`Y` –> {kbd}`Enter`.
-                                                                           
+Если сервер в терминале сам не закрылся: {kbd}`Ctrl` + {kbd}`C` –> {kbd}`Y` –> {kbd}`Enter`.
+                                                                     
 ---
-## 2.5. Создание контента
 
-Создаем обязательный [intro.md](https://jupyterbook.org/stable/get-started/create-content/) и может даже первый блокнот .ipynb: посмотреть удобство структуры сайта.
+## 2.4. Создание контента
+
+Создаем обязательный [intro.md](https://jupyterbook.org/stable/get-started/create-content/). А может даже и первый блокнот `.ipynb` чтобы сразу визуально протестировать структуру  будущего сайта.
 
 :::{code} markdown
 :filename: intro.md
@@ -119,7 +117,7 @@ I am a book about ... something!
 :::
 
 ---
-## 2.6. Настройка проекта
+## 2.5. Настройка проекта
 
 - Конфигурационный файл [myst.yml](https://jupyterbook.org/stable/build-and-publish/website/)
 - Файл содержания [toc.yml](https://jupyterbook.org/stable/authoring/table-of-contents/).
@@ -136,11 +134,6 @@ I am a book about ... something!
 
 Но свои шаблоны-заготовки выложу.
 :::
-
-::::{seealso} myst.yml
-:class: dropdown
-:open: false
-:icon: false
 
 :::{code} yaml
 :filename: myst.yml
@@ -178,12 +171,6 @@ site:
       url: https://mystmd.org/guide
   # domains: []
 :::
-::::
-
-::::{note} toc.yml
-:class: dropdown
-:open: false
-:icon: false
 
 :::{code} yaml
 :filename: toc.yml
@@ -207,6 +194,5 @@ project:
     - title: Глава 3. Запросы
       file: docs/ch03.ipynb
 :::
-::::
 
 ---

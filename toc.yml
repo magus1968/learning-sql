@@ -10,6 +10,7 @@ project:
         - file: docs/intro/intro1-environment.md
         - file: docs/intro/intro2-project.md
         - file: docs/intro/intro3-start.md
+        - file: docs/intro/daily-workflow.md
         - file: docs/intro/sandbox.ipynb
     # Глава 2
     - title: Глава 2. Создание и наполнение базы данных
