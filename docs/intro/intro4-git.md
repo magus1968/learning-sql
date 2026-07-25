@@ -32,7 +32,7 @@ abbreviations:
 
 :::{div}
 :class: text-xs
-Помним, что в предыдущем разделе [настроили **Git Bash**](https://magus1968.github.io/learning-sql/intro3-start/#id-3-1-git-bash) еще и в качестве второго терминала для исполнения команд **Conda**
+Помним, что в предыдущем разделе [настроили **Git Bash**](https://magus1968.github.io/learning-sql/intro3-start/#id-3-1-git-bash) в качестве второго терминала для исполнения команд **Conda**
 :::
 ::::
 

@@ -11,6 +11,7 @@ project:
         - file: docs/intro/intro2-project.md
         - file: docs/intro/intro3-start.md
         - file: docs/intro/intro4-git.md
+        - file: docs/intro/intro5-deploy.md
         - file: docs/intro/daily-workflow.md
         - file: docs/intro/sandbox.ipynb
     # Глава 2
