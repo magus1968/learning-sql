@@ -93,13 +93,21 @@ You can build all content with: jupyter book build --all
 ## 2.3. Jupyter Lab
 Для создания контента и настройки проекта будем использовать [Jupyter Lab](https://jupyterlab.readthedocs.io/en/latest/#). Удобнее запустить сервер Jupyter Lab в корне диска `D:\` – таким образом будет возможность перемещаться между проектами.
 
-Однако, чтобы не засорять корневую директорию диска временными файлами Jupyter, рекомендуется запускать Jupyter Lab в папке проекта
+Однако, чтобы не засорять корневую директорию диска временными файлами Jupyter, рекомендуется запускать **Jupyter Lab** в папке проекта
 
 ```{code} bash
 # Anaconda Prompt: (ds-book) D:\GitHub\Books\Learning-SQL>
 
 jupyter lab
 ```
+
+:::{important} В открытом блокноте `.ipynb`
+:class: dropdown
+:open: true
+
+В верхнем правом углу интерфейса **Jupyter Lab** убедиться, что выбран Kernel нужного окружения. В нашем примере `Python [conda env:ds-book] *`
+:::
+
 По завершении сеанса Jupyter Lab обязательно закрываем через **Shut Down**.  
 Если сервер в терминале сам не закрылся: {kbd}`Ctrl` + {kbd}`C` –> {kbd}`Y` –> {kbd}`Enter`.
                                                                      

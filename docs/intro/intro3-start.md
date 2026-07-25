@@ -20,6 +20,7 @@ abbreviations:
     JupySQL: Run & highlight SQL in Jupyter
     Pandas: Библиотека Python для анализа и обработки данных
     Polars: Мощный аналог Pandas на Rust/Python
+    ПКМ: Правая Кнопка Мыши
 ---
 
 На этом шаге нам потребуется второй терминал. Потому что один терминал **Anaconda Prompt** мы уже задействовали для запуска **Jupyter Lab**.
@@ -37,6 +38,8 @@ abbreviations:
 Чтобы подружить **Git Bash** c **Conda** раз и навсегда _(научить **Git Bash** понимать команды **Conda** без ручного ввода путей)_:
 
 :::{code} bash
+# Git Bash: YOUR_USERNAME@COMPUTER MINGW64 ~
+
 # Выполнить команду для интеграции conda с профилем bash
 echo "source ~/anaconda3/etc/profile.d/conda.sh" >> ~/.bashrc
 
@@ -54,14 +57,24 @@ This looks like an incorrect setup.
 A ~/.bash_profile that loads ~/.bashrc will be created for you.
 :::
 
+:::{hint} Лайфхак в Windows
+:class: dropdown
+:open: true
+Можно обойтись без ввода пути к папке проекта в терминале **Git Bash**.
+
+В Проводнике Windows заходим обычным образом в папку проекта: ПКМ –> **Open Git Bash here** и терминал **Git Bash** откроется сразу в нужной папке.
+:::
+
 ---
 
 ## 3.2. Запуск локального вебсайта
 
-[Запускаем локальный вебсайт](https://jupyterbook.org/stable/get-started/build-websites/), чтобы посмотреть как выглядит результат в браузере. По сути мы локально тестируем будущий сайт: смотрим, правим, сохраняем – при каждом сохранении сайт обновляется.
+[Запускаем локальный вебсайт](https://jupyterbook.org/stable/get-started/build-websites/), чтобы посмотреть как выглядит результат в браузере. По сути мы локально тестируем будущий сайт: в **Jupyter Lab** вносим, правим, сохраняем – при каждом сохранении сайт в **браузере** обновляется.
 
 ```{code} bash
-# Git Bash: (ds-book) /d/GitHub/Books/Learning-SQL
+# Git Bash: (ds-book)
+# YOUR_USERNAME@COMPUTER MINGW64 /d/GitHub/Books/Learning-SQL
+
 jupyter book start
 
 👉  http://localhost:3000  👈
