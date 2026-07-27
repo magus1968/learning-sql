@@ -25,4 +25,4 @@ dependencies:
   - python-dotenv
   - cryptography
   - pip:
-      - "polars[rtcompat]>=1.42.1"
+      - "polars[rtcompat]>=1.43.1"

@@ -171,6 +171,8 @@ git push -u origin main
 :open: false
 **GitHub** в своей документации рекомендует:
 
+---
+
 1. Генерировать SSH-ключ **ed25519**  
 [Generating a new SSH key](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key)
 ```bash

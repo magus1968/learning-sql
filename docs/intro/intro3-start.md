@@ -57,14 +57,6 @@ This looks like an incorrect setup.
 A ~/.bash_profile that loads ~/.bashrc will be created for you.
 :::
 
-:::{hint} Лайфхак в Windows
-:class: dropdown
-:open: true
-Можно обойтись без ввода пути к папке проекта в терминале **Git Bash**.
-
-В Проводнике Windows заходим обычным образом в папку проекта: ПКМ –> **Open Git Bash here** и терминал **Git Bash** откроется сразу в нужной папке.
-:::
-
 ---
 
 ## 3.2. Запуск локального вебсайта
@@ -81,5 +73,13 @@ jupyter book start
 # открываем эту ссылку в браузере
 ```
 _Для остановки сервера в терминале нажать {kbd}`Ctrl` + {kbd}`C`_
+
+:::{hint} Лайфхак в Windows
+:class: dropdown
+:open: true
+Можно обойтись без ввода пути к папке проекта в терминале **Git Bash**.
+
+В Проводнике Windows заходим обычным образом в папку проекта: ПКМ –> **Open Git Bash here** и терминал **Git Bash** откроется сразу в нужной папке.
+:::
 
 ---

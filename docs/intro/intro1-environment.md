@@ -243,7 +243,7 @@ dependencies:
   - python-dotenv
   - cryptography
   - pip:
-      - "polars[rtcompat]>=1.42.1"
+      - "polars[rtcompat]>=1.43.1"
 
 :::
 
@@ -294,7 +294,8 @@ _Команды которые пригодятся / могут пригоди�
 :::
 
 :::{code} bash
-# Не используется: деактивация происходит при закрытии терминала
+# Практически НЕ используется:
+# так как деактивация происходит при закрытии терминала
 conda deactivate
 
 
@@ -332,6 +333,21 @@ conda env list
 #    находясь в базовом `(base)`
 conda env remove -n ds-test
 # флаг `-n` – это сокращение от слова `--name`
+
+
+# -- Проверка наличия обновлений в `pip` --
+# Нас интересует `Polars` – ищем его в списке
+pip list --outdated
+
+# Обновление `Polars`
+pip install --upgrade polars[rtcompat]
+
+# Проверить импорт внутри Python
+python
+>>> import polars as pl
+>>> print(pl.__version__)
+1.43.1
+>>> exit()
 :::
 ::::
 
