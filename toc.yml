@@ -28,4 +28,4 @@ project:
       file: docs/sakila.md
     # Предметный указатель
     - title: Index
-      file: docs/index.md
+      file: docs/index.ipynb

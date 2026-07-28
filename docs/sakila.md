@@ -22,6 +22,7 @@ abbreviations:
     MyST: Markedly Structured Text
     Jupyter Book: Build static Web-books
     JupySQL: Run & highlight SQL in Jupyter
+    ПКМ: Правая Кнопка Мыши
 ---
 
 - [ ] _Проверить `sakila.pbix` на соответствие `sakila.mwb`_
@@ -67,10 +68,11 @@ abbreviations:
 - или открыть в MySQL Workbench исходный файл диаграммы `sakila.mwb`, который включен в [дистрибутив Sakila](https://dev.mysql.com/doc/index-other.html);
 - лично мне для первого знакомства по душе пришлась диаграмма с [Exploring Sakila](https://cgerezmi.github.io/2017/08/25/introduction.html):
 
-```{image} ./media/sakila-structure.png
+:::{figure} ./media/sakila-structure.png
 :alt: ER-диаграмма базы данных Sakila
 :align: center
-```
+_ПКМ по скрину –> Открыть картинку в новой вкладке_
+:::
 
 ---
 
