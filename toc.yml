@@ -2,7 +2,7 @@ version: 1
 project:
   toc:
     # Главная страница
-    - file: docs/index.md
+    - file: docs/intro.md
     # Get started
     - title: Быстрый старт
       children:
@@ -20,6 +20,12 @@ project:
     # Глава 3
     - title: Глава 3. Запросы
       file: docs/ch03.ipynb
+    # Глава 4
+    - title: Глава 4. Фильтрация
+      file: docs/ch04.ipynb
     # Схема Sakila
     - title: Sakila
       file: docs/sakila.md
+    # Предметный указатель
+    - title: Index
+      file: docs/index.md

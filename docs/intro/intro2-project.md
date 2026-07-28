@@ -76,7 +76,7 @@ You can build all content with: jupyter book build --all
    │   ├── media/             # скриншоты
    │   ├── ch02.ipynb         # глава 2
    │   ├── ch03.ipynb         # глава 3
-   │   └── index.md           # introduction
+   │   └── intro.md           # introduction
    ├── helpers/
    │   └── db_connect.py      # cюда можем написать логику подключения к БД
    ├── notebooks/             # папка для черновиков (игнорируется Git)
