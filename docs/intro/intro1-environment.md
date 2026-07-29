@@ -91,17 +91,17 @@ conda activate ds-book
 # Установка в conda инструментов верстки и коннекторов БД
 
 conda install -c conda-forge jupyter-book mysql-connector-python ^
-  pymysql jupysql jupyterlab-myst
+  pymysql jupysql jupyterlab-execute-time jupyterlab-myst
 ```
 
-
-| Пакет                                                                      | Версия в проекте | Назначение                                                                          |
-| -------------------------------------------------------------------------- | ---------------- | ----------------------------------------------------------------------------------- |
-| [Jupyter Book](https://jupyterbook.org/)                                   | 2.1.6            | Для верстки сайта из файлов Markdown и блокнотов Jupyter                            |
-| [mysql-connector-python](https://pypi.org/project/mysql-connector-python/) | 9.7.0            | Драйвер базы данных MySQL для Python                                                |
-| [pymysql](https://pypi.org/project/PyMySQL/)                               | 1.2.0            | Драйвер-коннектор MySQL для SQLAlchemy                                              |
-| [JupySQL](https://jupysql.readthedocs.io/en/latest/quick-start.html#)      | 0.11.1           | Расширение для работы с SQL в ячейках Jupyter c поддержкой подсветки синтаксиса     |
-| [jupyterlab_myst](https://mystmd.org/guide/quickstart-jupyter-lab-myst)    | 2.7.0            | Визуальный плагин разметки MyST для Lab. Рендерит внутри интерфейса во время работы |
+| Пакет                                                                                            | Версия в проекте | Назначение                                                                          |
+| ------------------------------------------------------------------------------------------------ | ---------------- | ----------------------------------------------------------------------------------- |
+| [Jupyter Book](https://jupyterbook.org/)                                                         | 2.1.6            | Для верстки сайта из файлов Markdown и блокнотов Jupyter                            |
+| [mysql-connector-python](https://pypi.org/project/mysql-connector-python/)                       | 9.7.0            | Драйвер базы данных MySQL для Python                                                |
+| [pymysql](https://pypi.org/project/PyMySQL/)                                                     | 1.2.0            | Драйвер-коннектор MySQL для SQLAlchemy                                              |
+| [JupySQL](https://jupysql.readthedocs.io/en/latest/quick-start.html#)                            | 0.11.1           | Расширение для работы с SQL в ячейках Jupyter c поддержкой подсветки синтаксиса     |
+| [jupyterlab-execute-time](https://jupysql.readthedocs.io/en/latest/howto/benchmarking-time.html) | 3.2.0            | Отображение времени, затраченного на выполнение ячейки в JupyterLab                 |
+| [jupyterlab_myst](https://mystmd.org/guide/quickstart-jupyter-lab-myst)                          | 2.7.0            | Визуальный плагин разметки MyST для Lab. Рендерит внутри интерфейса во время работы |
 
 ---
 
@@ -239,6 +239,7 @@ dependencies:
   - mysql-connector-python>=9.7.0
   - pymysql=1.2.0
   - jupysql=0.11.1
+  - jupyterlab_execute_time>=3.2.0
   # Утилиты
   - python-dotenv
   - cryptography
