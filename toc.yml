@@ -3,6 +3,7 @@ project:
   toc:
     # Главная страница
     - file: docs/intro.md
+    - file: docs/intro/get-started.md
     # Get started
     - title: Быстрый старт
       children:

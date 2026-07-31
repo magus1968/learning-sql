@@ -1,5 +1,5 @@
 ---
-title: 5. Публикация на сайт
+title: 5. Публикация сайта
 subtitle: SQL Lab in JupyterLab
 # license: CC-BY-4.0
 github: https://github.com/magus1968/learning-sql

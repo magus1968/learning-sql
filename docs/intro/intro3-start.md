@@ -1,5 +1,5 @@
 ---
-title: 3. Запуск локального вебсайта
+title: 3. Локальный запуск сайта
 subtitle: SQL Lab in JupyterLab
 # license: CC-BY-4.0
 github: https://github.com/magus1968/learning-sql
