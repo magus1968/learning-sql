@@ -3,7 +3,7 @@ project:
   toc:
     # Главная страница
     - file: docs/intro.md
-    - file: docs/intro/get-started.md
+    # - file: docs/intro/about.md
     # Get started
     - title: Быстрый старт
       children:
@@ -14,7 +14,7 @@ project:
         - file: docs/intro/intro4-git.md
         - file: docs/intro/intro5-deploy.md
         - file: docs/intro/daily-workflow.md
-        - file: docs/intro/sandbox.ipynb
+    #     - file: docs/intro/sandbox.ipynb
     # Глава 2
     - title: Глава 2. Создание и наполнение базы данных
       file: docs/ch02.ipynb
