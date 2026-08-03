@@ -3,30 +3,33 @@ project:
   toc:
     # Главная страница
     - file: docs/intro.md
-    # - file: docs/intro/about.md
     # Get started
     - title: Быстрый старт
       children:
-        - file: docs/intro/intro-source.md
+        - file: docs/intro/intro0-source.md
         - file: docs/intro/intro1-environment.md
         - file: docs/intro/intro2-project.md
         - file: docs/intro/intro3-start.md
         - file: docs/intro/intro4-git.md
         - file: docs/intro/intro5-deploy.md
         - file: docs/intro/daily-workflow.md
-    #     - file: docs/intro/sandbox.ipynb
-    # Глава 2
-    - title: Глава 2. Создание и наполнение базы данных
-      file: docs/ch02.ipynb
-    # Глава 3
-    - title: Глава 3. Запросы
-      file: docs/ch03.ipynb
-    # Глава 4
-    - title: Глава 4. Фильтрация
-      file: docs/ch04.ipynb
-    # Схема Sakila
-    - title: Sakila
-      file: docs/sakila.md
-    # Предметный указатель
-    - title: Index
-      file: docs/index.ipynb
+    # Chapters
+    - title: Главы
+      children:
+        - title: Глава 2. Создание и наполнение базы данных
+          file: docs/chapters/ch02.ipynb
+        - title: Глава 3. Запросы
+          file: docs/chapters/ch03.ipynb
+        - title: Глава 4. Фильтрация
+          file: docs/chapters/ch04.ipynb
+        # Схема Sakila
+        - title: Sakila
+          file: docs/chapters/sakila.md
+        # Предметный указатель
+        - title: Index
+          file: docs/chapters/index.ipynb
+    # Appendix
+    - title: Appendix
+      children:
+        - file: docs/appx/about.md
+        - file: docs/appx/sandbox.ipynb

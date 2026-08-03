@@ -1,5 +1,5 @@
 ---
-title: Структура гайда
+title: About
 subtitle: SQL Lab in JupyterLab
 # license: CC-BY-4.0
 github: https://github.com/magus1968/learning-sql
