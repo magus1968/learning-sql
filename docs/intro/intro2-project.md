@@ -95,11 +95,11 @@ You can build all content with: jupyter book build --all
 
 Однако, чтобы не засорять корневую директорию диска временными файлами Jupyter, рекомендуется запускать **Jupyter Lab** в папке проекта
 
-```{code} bash
+:::{code} bash
 # Anaconda Prompt: (ds-book) D:\GitHub\Books\Learning-SQL>
 
 jupyter lab
-```
+:::
 
 :::{important} В открытом блокноте `.ipynb`
 :class: dropdown

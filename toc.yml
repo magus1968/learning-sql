@@ -13,6 +13,10 @@ project:
         - file: docs/intro/intro4-git.md
         - file: docs/intro/intro5-deploy.md
         - file: docs/intro/daily-workflow.md
+    # Advanced Setup
+    - title: Advanced Setup
+      children:
+        - file: docs/adv/adv-gitverse.md
     # Chapters
     - title: Главы
       children:
