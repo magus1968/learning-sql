@@ -5,6 +5,7 @@ project:
     - file: docs/intro.md
     # Get started
     - title: Быстрый старт
+      file: docs/intro/intro-about.md
       children:
         - file: docs/intro/intro0-source.md
         - file: docs/intro/intro1-environment.md
@@ -15,10 +16,12 @@ project:
         - file: docs/intro/daily-workflow.md
     # Advanced Setup
     - title: Advanced Setup
+      file: docs/adv/adv-about.md
       children:
         - file: docs/adv/adv-gitverse.md
     # Chapters
     - title: Главы
+      file: docs/chapters/ch-about.md
       children:
         - title: Глава 2. Создание и наполнение базы данных
           file: docs/chapters/ch02.ipynb
@@ -26,6 +29,8 @@ project:
           file: docs/chapters/ch03.ipynb
         - title: Глава 4. Фильтрация
           file: docs/chapters/ch04.ipynb
+        - title: Глава 5. Запросы к нескольким таблицам
+          file: docs/chapters/ch05.ipynb
         # Схема Sakila
         - title: Sakila
           file: docs/chapters/sakila.md
@@ -34,6 +39,7 @@ project:
           file: docs/chapters/index.ipynb
     # Appendix
     - title: Appendix
+      file: docs/appx/appx-about.md
       children:
         - file: docs/appx/about.md
         - file: docs/appx/sandbox.ipynb

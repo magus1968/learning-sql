@@ -73,13 +73,13 @@ conda activate ds-book
 | **`python=3.12.12`**   | 3.12.12          | Ядро языка программирования                                                    |
 | **`jupyterlab=4.4.7`** | 4.4.7            | Интерактивная среда разработки                                                 |
 | **`notebook=7.4.5`**   | 7.4.5            | Интерактивная среда разработки                                                 |
-| **`pandas`**           | 3.0.3            | Классический анализ данных. Базовый инструмент обработки таблиц (DataFrames)   |
+| **`pandas`**           | 3.0.5            | Классический анализ данных. Базовый инструмент обработки таблиц (DataFrames)   |
 | **`numpy`**            | 2.5.1            | Математические вычисления                                                      |
-| **`matplotlib`**       | 3.11.0           | Базовые графики                                                                |
+| **`matplotlib`**       | 3.11.1           | Базовые графики                                                                |
 | **`seaborn`**          | 0.13.2           | Статистическая визуализация                                                    |
 | **`scikit-learn`**     | 1.9.0            | Машинное обучение                                                              |
 | **`python-dotenv`**    | 1.2.2            | Управление секретами. Безопасное хранение паролей БД и токенов в файлах `.env` |
-| **`cryptography`**     | 49.0.0           | Шифрование данных. На случай продвинутой работы с секретами внутри Python      |
+| **`cryptography`**     | 50.0.0           | Шифрование данных. На случай продвинутой работы с секретами внутри Python      |
 | **`sqlalchemy`**       | 2.0.51           | Универсальный ORM-мост между Python и реляционными БД                          |
 
 ---
@@ -100,7 +100,7 @@ conda install -c conda-forge jupyter-book mysql-connector-python ^
 | [mysql-connector-python](https://pypi.org/project/mysql-connector-python/)                       | 9.7.0            | Драйвер базы данных MySQL для Python                                                |
 | [pymysql](https://pypi.org/project/PyMySQL/)                                                     | 1.2.0            | Драйвер-коннектор MySQL для SQLAlchemy                                              |
 | [JupySQL](https://jupysql.readthedocs.io/en/latest/quick-start.html#)                            | 0.11.1           | Расширение для работы с SQL в ячейках Jupyter c поддержкой подсветки синтаксиса     |
-| [jupyterlab-execute-time](https://jupysql.readthedocs.io/en/latest/howto/benchmarking-time.html) | 3.2.0            | Отображение времени, затраченного на выполнение ячейки в JupyterLab                 |
+| [jupyterlab-execute-time](https://jupysql.readthedocs.io/en/latest/howto/benchmarking-time.html) | 3.3.0            | Отображение времени, затраченного на выполнение ячейки в JupyterLab                 |
 | [jupyterlab_myst](https://mystmd.org/guide/quickstart-jupyter-lab-myst)                          | 2.7.0            | Визуальный плагин разметки MyST для Lab. Рендерит внутри интерфейса во время работы |
 
 ---
@@ -122,8 +122,8 @@ pip install polars
 
 | Пакет                                                   | Версия в проекте | Назначение                                                                                     |
 | ------------------------------------------------------- | ---------------- | ---------------------------------------------------------------------------------------------- |
-| [Polars](https://docs.pola.rs/user-guide/installation/) | 1.43.0           | Аналог Pandas. Мощный современный движок на Rust для _щупанья_ альтернатив (на домашнем компе) |
-| **`polars[rtcompat]`**                                  | 1.42.1           | На дачном компе: c автоматической поддержкой старых процессоров (через движок совместимости)   |
+| [Polars](https://docs.pola.rs/user-guide/installation/) | 1.43.2           | Аналог Pandas. Мощный современный движок на Rust для _щупанья_ альтернатив (на домашнем компе) |
+| **`polars[rtcompat]`**                                  | 1.43.2           | На дачном компе: c автоматической поддержкой старых процессоров (через движок совместимости)   |
 
 ::::{tip} Чуть подробнее
 :class: dropdown
@@ -156,13 +156,13 @@ pip install polars
 python
 >>> import polars as pl
 >>> print(pl.__version__)
-1.43.0
+1.43.2
 >>> exit()
 
 # Проверить импорт в ячейке Jupyter Lab (пример на старом PC)
 import polars as pl
 print(pl.__version__)
-# 1.42.1
+# 1.43.2
 ```
 :::
 
@@ -229,9 +229,9 @@ dependencies:
   - jupyter-book=2.1.6
   - jupyterlab-myst=2.7.0
   # Анализ данных и визуализация
-  - pandas>=3.0.3
+  - pandas>=3.0.5
   - numpy>=2.5.1
-  - matplotlib>=3.11.0
+  - matplotlib>=3.11.1
   - seaborn>=0.13.2
   - scikit-learn>=1.9.0
   # Работа с БД
@@ -239,12 +239,13 @@ dependencies:
   - mysql-connector-python>=9.7.0
   - pymysql=1.2.0
   - jupysql=0.11.1
-  - jupyterlab_execute_time>=3.2.0
   # Утилиты
   - python-dotenv
   - cryptography
   - pip:
-      - "polars[rtcompat]>=1.43.1"
+      # - "polars>=1.43.2"
+      - "polars[rtcompat]>=1.43.2"
+      - "jupyterlab_execute_time>=3.3.0"
 
 :::
 
@@ -347,7 +348,7 @@ pip install --upgrade polars[rtcompat]
 python
 >>> import polars as pl
 >>> print(pl.__version__)
-1.43.1
+1.43.2
 >>> exit()
 :::
 ::::
