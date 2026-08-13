@@ -21,5 +21,5 @@ abbreviations:
 
 | Раздел                                                            | Описание                                         |
 | ----------------------------------------------------------------- | ------------------------------------------------ |
-| [About](https://magus1968.github.io/learning-sql/about/)          | О проекте _(draft)_                              |
+| [About](https://magus1968.github.io/learning-sql/about/)          | О проекте _(archive)_                            |
 | [MyST Sandbox](https://magus1968.github.io/learning-sql/sandbox/) | Песочница для личного тестирования MyST Markdown |
