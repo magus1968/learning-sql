@@ -31,6 +31,10 @@ project:
           file: docs/chapters/ch04.ipynb
         - title: Глава 5. Запросы к нескольким таблицам
           file: docs/chapters/ch05.ipynb
+        - title: Глава 6. Работа с множествами
+          file: docs/chapters/ch06.ipynb
+        - title: Глава 7. Генерация, обработка и преобразование данных
+          file: docs/chapters/ch07.ipynb
         # Схема Sakila
         - title: Sakila
           file: docs/chapters/sakila.md

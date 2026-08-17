@@ -12,6 +12,7 @@ dependencies:
   - jupyterlab-myst=2.7.0
   # Анализ данных и визуализация
   - pandas>=3.0.3
+  # - polars>=1.43.2                       # на современных процессорах с поддержкой AVG
   - numpy>=2.5.1
   - matplotlib>=3.11.0
   - seaborn>=0.13.2
@@ -25,6 +26,5 @@ dependencies:
   - python-dotenv
   - cryptography
   - pip:
-      # - "polars>=1.43.2"
-      - "polars[rtcompat]>=1.43.2"
+      - "polars[rtcompat]>=1.43.2"         # и на старых и на современных процессорах
       - "jupyterlab_execute_time>=3.3.0"
