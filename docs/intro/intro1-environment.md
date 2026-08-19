@@ -44,11 +44,11 @@ conda create --name ds-book anaconda
 conda activate ds-book
 ```
 
-Этот путь был выбран на старте, чтобы не заморачиваться потом с доустановкой необходимых пакетов и исправлением возможных конфликтов зависимостей.
+Этот путь был выбран на старте, чтобы _не заморачиваться_ потом с доустановкой необходимых пакетов и исправлением возможных конфликтов зависимостей.
 
 ---
 
-Однако, оказавшись за _стареньким_ дачным компом с нестабильным мобильным интернетом оказалось, что этот путь невозможен. Пришлось почерепить что мне действительно может понадобиться и разбил задачу на три этапа.
+Однако, оказавшись за _стареньким_ дачным компом с нестабильным мобильным интернетом оказалось, что этот путь невозможен. Пришлось _почерепить_ что действительно может понадобиться и разбил задачу на три этапа.
 
 ## 1.1. Создание изолированного окружения
 
@@ -91,7 +91,7 @@ conda activate ds-book
 # Установка в conda инструментов верстки и коннекторов БД
 
 conda install -c conda-forge jupyter-book mysql-connector-python ^
-  pymysql jupysql jupyterlab-execute-time jupyterlab-myst
+  pymysql jupysql jupyterlab-myst
 ```
 
 | Пакет                                                                                            | Версия в проекте | Назначение                                                                          |
@@ -107,7 +107,7 @@ conda install -c conda-forge jupyter-book mysql-connector-python ^
 
 ## 1.3.  Установка Polars
 
-Из [официальной документации](https://docs.pola.rs/user-guide/installation/) установка производится только через менеджер `pip`. Причем для старых процессоров (без поддержки [AVG](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions)) команда установки отличается.
+Из [официальной документации](https://docs.pola.rs/user-guide/installation/) установка производится через менеджер `pip`. Причем для старых процессоров (без поддержки [AVX2](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions)) команда установки отличается.
 
 ```{code} bash
 # -- Этап 3 -- Anaconda Prompt: (ds-book) C:\Users\YOUR_USERNAME>
@@ -168,7 +168,7 @@ print(pl.__version__)
 
 ::::
 
-Зачем понадобятся Pandas и Polars наглядно продемонстрировал в [Главе 3](https://magus1968.github.io/learning-sql/ch03/#id-2).
+Зачем понадобятся Pandas и Polars продемонстрировал в [Главе 3](https://magus1968.github.io/learning-sql/ch03/#id-2).
 
 ---
 
@@ -230,6 +230,7 @@ dependencies:
   - jupyterlab-myst=2.7.0
   # Анализ данных и визуализация
   - pandas>=3.0.5
+  # - polars>=1.43.2                    # на современных CPU с поддержкой AVX2
   - numpy>=2.5.1
   - matplotlib>=3.11.1
   - seaborn>=0.13.2
@@ -243,8 +244,7 @@ dependencies:
   - python-dotenv
   - cryptography
   - pip:
-      # - "polars>=1.43.2"
-      - "polars[rtcompat]>=1.43.2"
+      - "polars[rtcompat]>=1.43.2"         # и на старых и на современных CPU
       - "jupyterlab_execute_time>=3.3.0"
 
 :::
