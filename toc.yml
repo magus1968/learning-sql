@@ -18,6 +18,7 @@ project:
     - title: Advanced Setup
       file: docs/adv/adv-about.md
       children:
+        - file: docs/adv/adv-execute-time.md
         - file: docs/adv/adv-gitverse.md
     # Chapters
     - title: Главы

@@ -16,8 +16,11 @@ authors:
 date: 2026-07-23
 abbreviations:
     MyST: Markedly Structured Text
-    Jupyter Book: Build static Web-books
-    JupySQL: Run & highlight SQL in Jupyter
+    Jupyter Book: Инструмент сборки статических сайтов
+    JupySQL: Расширение для запуска и подсветки SQL в Jupyter
+    GitHub: Платформа хостинга репозиториев и совместной разработки
+    GitHub Pages: Сервис бесплатного хостинга статических сайтов
+    GitHub Actions: Платформа автоматизации рабочих процессов и CI/CD
     Pandas: Библиотека Python для анализа и обработки данных
     Polars: Мощный аналог Pandas на Rust/Python
 ---
@@ -60,17 +63,28 @@ conda create --name ds-book -c conda-forge python=3.12 jupyterlab=4.4.7 ^
   notebook=7.4.5 pandas numpy matplotlib seaborn scikit-learn ^
   python-dotenv cryptography sqlalchemy -y
 
-# Jupyter Lab -- конкретно версии 4.4.7 чтобы работал jupyterlab_myst
-# Jupyter Notebook -- 7.4.5 (по той же причине)
-# Python -- 3.12.12 именно эта версия входит в сбалансированный
-#  Anaconda Metapackage (Distribution) – решил не экспериментировать 
+# Python -- 3.12 стабильный релиз из сбалансированного Anaconda Distribution
+# Jupyter Lab -- 4.4.7 для совместимости с расширением `jupyterlab_myst`
+# Jupyter Notebook -- 7.4.5 синхронизирован с базой JupyterLab 4.
 
 conda activate ds-book
 ```
 
+% ::::{div}
+% :class: text-sm
+
+% :::{note .simple .dropdown icon=false open=true} Зафиксированные версии
+
+% **Python** 3.12 – стабильный релиз из сбалансированного метапакета Anaconda Distribution \
+% **Jupyter Lab** 4.4.7 – зафиксирован для совместимости с расширением **jupyterlab_myst** \
+% **Jupyter Notebook** 7.4.5 – синхронизирован с базой JupyterLab 4
+% :::
+% ::::
+
+
 | Пакет                  | Версия в проекте | Назначение                                                                     |
 | ---------------------- | ---------------- | ------------------------------------------------------------------------------ |
-| **`python=3.12.12`**   | 3.12.12          | Ядро языка программирования                                                    |
+| **`python=3.12`**      | 3.12.13          | Ядро языка программирования                                                    |
 | **`jupyterlab=4.4.7`** | 4.4.7            | Интерактивная среда разработки                                                 |
 | **`notebook=7.4.5`**   | 7.4.5            | Интерактивная среда разработки                                                 |
 | **`pandas`**           | 3.0.5            | Классический анализ данных. Базовый инструмент обработки таблиц (DataFrames)   |
@@ -99,9 +113,19 @@ conda install -c conda-forge jupyter-book mysql-connector-python ^
 | [Jupyter Book](https://jupyterbook.org/)                                                         | 2.1.6            | Для верстки сайта из файлов Markdown и блокнотов Jupyter                            |
 | [mysql-connector-python](https://pypi.org/project/mysql-connector-python/)                       | 9.7.0            | Драйвер базы данных MySQL для Python                                                |
 | [pymysql](https://pypi.org/project/PyMySQL/)                                                     | 1.2.0            | Драйвер-коннектор MySQL для SQLAlchemy                                              |
-| [JupySQL](https://jupysql.readthedocs.io/en/latest/quick-start.html#)                            | 0.11.1           | Расширение для работы с SQL в ячейках Jupyter c поддержкой подсветки синтаксиса     |
-| [jupyterlab-execute-time](https://jupysql.readthedocs.io/en/latest/howto/benchmarking-time.html) | 3.3.0            | Отображение времени, затраченного на выполнение ячейки в JupyterLab                 |
+| [JupySQL](https://jupysql.readthedocs.io/en/latest/quick-start.html)                             | 0.11.1           | Расширение для работы с SQL в ячейках Jupyter c поддержкой подсветки синтаксиса     |
+| [jupyterlab-execute-time](https://jupysql.readthedocs.io/en/latest/howto/benchmarking-time.html) | 3.3.0            | Плагин для вывода времени исполнения запроса в строке статуса ячейки Jupyter Lab    |
 | [jupyterlab_myst](https://mystmd.org/guide/quickstart-jupyter-lab-myst)                          | 2.7.0            | Визуальный плагин разметки MyST для Lab. Рендерит внутри интерфейса во время работы |
+
+:::{note} Примечание по плагину `jupyterlab_execute_time`
+:class: dropdown
+:open: true
+:icon: true
+
+Для автоматического вывода времени выполнения SQL-запросов в проекте используется интерейсный плагин `jupyterlab_execute_time`. Из-за отставания версий в репозитории `conda-forge` плагин устанавливается через `pip`.
+
+Подробный разбор причин такого решения, сравнение с магической командой `%%time` и особенности отображения таймингов в Jupyter Book вынес в отдельный раздел Бенчмаркинг SQL-запросов.
+:::
 
 ---
 
@@ -221,7 +245,7 @@ channels:
   - conda-forge
   - defaults
 dependencies:
-  - python=3.12.12
+  - python=3.12
   - pip
   # Среда разработки
   - jupyterlab=4.4.7
