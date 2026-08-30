@@ -36,6 +36,8 @@ project:
           file: docs/chapters/ch06.ipynb
         - title: Глава 7. Генерация, обработка и преобразование данных
           file: docs/chapters/ch07.ipynb
+        - title: Глава 8. Группировка и агрегация
+          file: docs/chapters/ch08.ipynb
         # Схема Sakila
         - title: Sakila
           file: docs/chapters/sakila.md
