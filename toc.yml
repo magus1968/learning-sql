@@ -50,3 +50,4 @@ project:
       children:
         - file: docs/appx/about.md
         - file: docs/appx/sandbox.ipynb
+        - file: docs/appx/simulative.ipynb

@@ -2,7 +2,7 @@
 version: 1
 project:
   id: f6867171-591f-4c2a-8377-e5205a556f66
-  title: Изучаем SQL. Алан Болье
+  title: SQL Lab в JupyterLab # SQL Lab in JupyterLab
   # description:
   # keywords:   # убрал, чтобы не отображались в abstract
     # - jupyter-book
