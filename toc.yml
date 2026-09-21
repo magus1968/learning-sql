@@ -38,6 +38,8 @@ project:
           file: docs/chapters/ch07.ipynb
         - title: Глава 8. Группировка и агрегация
           file: docs/chapters/ch08.ipynb
+        - tiile: Глава 9. Подзапросы
+          file: docs/chapters/ch09.ipynb
         # Схема Sakila
         - title: Sakila
           file: docs/chapters/sakila.md
