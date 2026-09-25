@@ -12,7 +12,7 @@ authors:
   - name: Alex Smirnov
     email: a@smirnovs.pro
     corresponding: true
-    affiliations: Data & BI Analyst
+    affiliations: Data Analyst
       # - Data Analyst
       # - BI Analyst
       # - Business Analyst
@@ -25,11 +25,9 @@ abbreviations:
     ПКМ: Правая Кнопка Мыши
 ---
 
-- [ ] _Проверить `sakila.pbix` на соответствие `sakila.mwb`_
-
 [Sakila](https://dev.mysql.com/doc/sakila/en/) – это классическая учебная база данных, разработанная командой MySQL для демонстрации возможностей реляционных СУБД. Она имитирует реальные бизнес-процессы компании начала 2000-х годов, занимающейся прокатом DVD-дисков. 
 
-Схема содержит **16 основных таблиц**, связанных внешними ключами, а также встроенные представления (Views) и триггеры.
+Схема содержит **16 основных таблиц**, связанных внешними ключами, а также 7 встроенных представлений (Views) и триггеры.
 
 ```text
 | Tables_in_sakila           | Table_type |
@@ -64,14 +62,30 @@ abbreviations:
 ## Схема связей (ER-диаграмма)
 
 Для визуального понимания структуры:
-- можем использовать диаграмму модели данных из Приложения А;
-- или открыть в MySQL Workbench исходный файл диаграммы `sakila.mwb`, который включен в [дистрибутив Sakila](https://dev.mysql.com/doc/index-other.html);
-- лично мне для первого знакомства по душе пришлась диаграмма с [Exploring Sakila](https://cgerezmi.github.io/2017/08/25/introduction.html):
+- [ ] можем использовать диаграмму модели данных из Приложения А;
+- [ ] лично мне *для первого знакомства* по душе пришлась диаграмма с [Exploring Sakila](https://cgerezmi.github.io/2017/08/25/introduction.html):
 
 :::{figure} ./media/sakila-structure.png
 :alt: ER-диаграмма базы данных Sakila
 :align: center
 _ПКМ по скрину –> Открыть картинку в новой вкладке_
+:::
+- [x] однако ближе к главе 9 стал пользоваться диаграммой в DBeaver;
+:::{figure} ./media/sakila-structure-dbeaver.png
+:alt: ER-диаграмма базы данных Sakila
+:align: center
+:::
+- [x] а впоследствии и вовсе вернулся к истокам, открывая в MySQL Workbench оригинальный файл `sakila.mwb`, который включен в [дистрибутив Sakila](https://dev.mysql.com/doc/index-other.html);
+:::{figure} ./media/sakila-structure-workbench.png
+:alt: ER-диаграмма базы данных Sakila
+:align: center
+:::
+- [ ] на старте экспортировал базу в Power BI, соотнес каждое поле в каждой таблице к корректному типу данных. Но проверить автоматически сгенерированные связи `sakila.pbix` на соответствие `sakila.mwb` руки пока не дошли
+:::{figure} ./media/sakila-structure--power-bi.png
+:alt: ER-диаграмма базы данных Sakila
+:align: center
+Хотя открывать в Power BI таблицы для просмотра их содержимого было на старте удобно. \
+А поскольку в планах углубленная проработка DAX, то к схеме Power BI позже вернусь.
 :::
 
 ---
