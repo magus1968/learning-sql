@@ -43,6 +43,8 @@ project:
           file: docs/chapters/ch09.ipynb
         - title: Глава 10. Соединения
           file: docs/chapters/ch10.ipynb
+        - title: Глава 11. Условная логика
+          file: docs/chapters/ch11.ipynb
         # Схема Sakila
         - title: Sakila
           file: docs/chapters/sakila.md
