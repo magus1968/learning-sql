@@ -19,6 +19,7 @@ project:
       file: docs/adv/adv-about.md
       children:
         - file: docs/adv/adv-mysql.md
+        - file: docs/adv/adv-sqlalchemy-jupysql.ipynb
         - file: docs/adv/adv-execute-time.md
         - file: docs/adv/adv-gitverse.md
     # Chapters
