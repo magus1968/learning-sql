@@ -15,7 +15,7 @@
 
 % An admonition containing a note
 :::{important} Итоговое решение
-Блокноты [Jupyter Notebook](https://jupyter.org/), [Python](https://www.python.org/) и [SQLAlchemy](https://www.sqlalchemy.org/) – из дистрибутива [Anaconda](https://www.anaconda.com/download); плюс драйвер-коннектор [PyMySQL](https://pypi.org/project/PyMySQL/) и [JupySQL](https://jupysql.readthedocs.io/en/latest/quick-start.html) для подсветки синтаксиса SQL.
+Блокноты [Jupyter](https://jupyter.org/), [Python](https://www.python.org/) и [SQLAlchemy](https://www.sqlalchemy.org/) – из дистрибутива [Anaconda](https://www.anaconda.com/download); плюс драйвер-коннектор [PyMySQL](https://pypi.org/project/PyMySQL/) и [JupySQL](https://jupysql.readthedocs.io/en/latest/quick-start.html) для подсветки синтаксиса SQL.
 :::
 
 Вопрос вроде бы был уже решен, но тут появилась _подкожная_ мысль, которая и стала причиной этого гайда: что если для доступа к блокнотам использовать не просто GitHub, а создать статический сайт с функцией поиска?
