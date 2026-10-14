@@ -52,7 +52,7 @@ abbreviations:
 :class: simple dropdown
 :open: true
 :icon: false
-[^2]: Этот блок раскрыт (развернут), чтобы показать как выглядит содержимое (скриншот) *под капотом*.
+[^2]: Этот блок оставлен развернутым, чтобы показать как выглядит скриншот *под капотом*.
 
     - Кликнув по заголовку, блок можно закрыть (свернуть).
 
@@ -405,13 +405,133 @@ abbreviations:
 
 ---
 
+## Проверка установки
+
+Чтобы убедиться, что сервер MySQL работает корректно, и проверить доступ к базе данных **Sakila**, достаточно подключиться к СУБД через стандартный консольный клиент.
+
+### Запуск клиента
+
+Запустим утилиту через меню Windows: \
+Пуск → MySQL → MySQL 8.0 Command Line Client - Unicode[^8]
+
+[^8]: Почему именно **Unicode**?
+    - **MySQL 8.0 Command Line Client** – запускает консоль в стандартной для русской Windows кодировке **CP1251** (или OEM 866).
+    - **MySQL 8.0 Command Line Client - Unicode** – принудительно запускает консоль с поддержкой **UTF-8** (Юникод) и системными шрифтами, которые умеют этот Юникод отображать.
+    
+    В базе данных **Sakila** все данные (имена актеров, названия фильмов) написаны на английском языке и отобразятся в любой консоли.
+    
+    Однако если написать SQL-запрос с комментариями на русском языке или вставить в таблицу данные на кириллице, то в обычной консоли получим *кракозябры*. В Unicode-версии кириллица отобразится корректно.
+
+В открывшемся окне терминала появится запрос пароля суперпользователя.
+
+:::{code} cmd
+:filename: MySQL 8.0 Command Line Client - Unicode
+
+Enter password: ********
+:::
+
+Вводим пароль пользователя **root**, заданный при установке, и жмем {kbd}`Enter`. \
+При успешном входе отобразится приветствие сервера и приглашение командной строки `mysql>`:
+
+:::{code} cmd
+:filename: MySQL 8.0 Command Line Client - Unicode
+
+Enter password: ********
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 11
+Server version: 8.0.46 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2026, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> 
+:::
+
+### Проверка подключения
+
+Для просмотра доступных баз данных выполним команду `SHOW DATABASES;`:
+
+:::{code} cmd
+:filename: MySQL 8.0 Command Line Client - Unicode
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| classicmodels      |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sakila             |  <--
+| sys                |
+| world              |
++--------------------+
+8 rows in set (0.00 sec)
+
+mysql>
+:::
+
+В выводе должна присутствовать база данных **Sakila**. \
+Переключимся на нее `USE sakila;` и выведем список таблиц через `SHOW TABLES;`:
+
+:::{code} cmd
+:filename: MySQL 8.0 Command Line Client - Unicode
+
+mysql> use sakila;
+Database changed
+mysql> show tables;
++----------------------------+
+| Tables_in_sakila           |
++----------------------------+
+| actor                      |
+| actor_info                 |
+| address                    |
+| category                   |
+| city                       |
+| country                    |
+| customer                   |
+| customer_list              |
+| film                       |
+| film_actor                 |
+| film_category              |
+| film_list                  |
+| film_text                  |
+| inventory                  |
+| language                   |
+| nicer_but_slower_film_list |
+| payment                    |
+| rental                     |
+| sales_by_film_category     |
+| sales_by_store             |
+| staff                      |
+| staff_list                 |
+| store                      |
++----------------------------+
+23 rows in set (0.00 sec)
+
+mysql> quit
+:::
+
+Список таблиц подтверждает, что база данных **Sakila** доступна для работы.
+
+Для завершения сеанса и закрытия консоли вводим `exit` (или `quit`) &rarr; {kbd}`Enter`.
+
+---
+
 ## Что дальше
 
-:::{seealso} Далее накидаю тезисно, возможно впоследствии распишу подробно.
+::::{seealso} Тезисно.
 :class: simple dropdown
-:open: true
+:open: false
 :icon: true
 
+:::{div}
+:class: text-sm
 1. Отметка времени `4:44` из видео [How to install MySQL...](https://www.youtube.com/watch?v=fzd6-qcLzrE) от Amit Thinks, YouTube – добавление пути к папке `bin` сервера MySQL в системную переменную среды `Path` лично я сделал, хотя в других руководствах по установке не встречал. Добавление пути в переменную Path нужно для удобства: чтобы вызывать утилиту `mysql` напрямую из любой консоли (CMD, PowerShell, VS Code), а не только через стандартные ярлыки MySQL 8.0 Command Line Client или графические программы вроде DBeaver.
 
 Большинство авторов этот шаг игнорируют.
@@ -420,48 +540,27 @@ abbreviations:
 
 ---
 
-2. Проверка подключения к базе данных Sakila из консоли **MySQL 8.0 Command Line Client - Unicode**.
-
-```sql
--- При запросе "Enter password:" вводим пароль пользователя root
-
--- Проверка установленных баз данных
-show databases;
-
--- Переключение на учебную базу данных Sakila
-use sakila;
-
--- Просмотр списка таблиц (должно быть 16 таблиц + представления)
-show tables;
-
--- Выход из консольного клиента
-quit
-```
-
----
-
-3. Запуск **MySQL Workbench** и открытие модели данных [sakila.mwb](https://dev.mysql.com/doc/sakila/en/sakila-installation.html) для изучения структуры данных (схемы связей) исследуемой базы данных.
+2. Запуск **MySQL Workbench** и открытие модели данных [sakila.mwb](https://dev.mysql.com/doc/sakila/en/sakila-installation.html) для изучения структуры данных (схемы связей) исследуемой базы данных.
     - Запустить MySQL Workbench и создать новое подключение к локальному серверу.
     - В верхнем меню выбрать **File** –> **Open Model** и указать путь к скачанному файлу `sakila.mwb`.
-    - Дважды кликнуть по иконке схемы в блоке **EER Diagrams**[^8] чтобы открыть интерактивную визуальную карту таблиц.
+    - Дважды кликнуть по иконке схемы в блоке **EER Diagrams**[^9] чтобы открыть интерактивную визуальную карту таблиц.
     - Изучить связи (внешние ключи) между ключевыми сущностями: `actor`, `film`, `customer` и `rental`.
 
-[^8]: **Enhanced Entity-Relationship Diagram** – расширенная диаграмма *сущность-связь*.
+[^9]: **Enhanced Entity-Relationship Diagram** – расширенная диаграмма *сущность-связь*.
 
     MySQL Workbench устанавливаем только для одной конкретной задачи – открыть файл `sakila.mwb` и наглядно увидеть схему связей (EER-диаграмму) учебной базы данных.
 
 ---
 
-4. [Скачивание](https://dev.mysql.com/doc/index-other.html) и [установка](https://dev.mysql.com/doc/sakila/en/sakila-installation.html) базы данных Sakila в случае, если сервер MySQL был установлен ранее без демонстрационной базы данных[^9].
+3. [Скачивание](https://dev.mysql.com/doc/index-other.html) и [установка](https://dev.mysql.com/doc/sakila/en/sakila-installation.html) базы данных Sakila в случае, если сервер MySQL был установлен ранее без демонстрационной базы данных[^10].
 
-[^9]: Правда нужно понять насколько подробно расписывать, т.к. Алан Болье повествует об этом в начале Главы 2.
+[^10]: Правда нужно понять насколько подробно расписывать, т.к. Алан Болье повествует об этом в начале Главы 2.
 
 ```cmd
 mysql -u root -p < sakila-schema.sql
 mysql -u root -p < sakila-data.sql
 ```
-
 :::
+::::
 
 ---
-
