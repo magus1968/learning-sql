@@ -30,14 +30,16 @@ title: Создание инфраструктуры
 :::
 ::::
 
-| Раздел [^1]                                                                            | Описание                                                                       |
-| -------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
-| [Установка MySQL](https://magus1968.github.io/learning-sql/adv-mysql/)                 | Разворачиваем локальную базу данных                                            |
-| Установка DBeaver                                                                      |                                                                                |
-| SQLAlchemy & JupySQL                                                                   | Подключение к базе данных Sakila и запуск SQL в JupyterLab                     |
-| [Бенчмаркинг SQL-запросов](https://magus1968.github.io/learning-sql/adv-execute-time/) | Реализация автоматического вывода времени выполнения SQL-запросов в JupyterLab |
-| VS Code vs JupyterLab                                                                  | Для каких задач удобнее VS Code, настройка VS Code под проект                  |
-| Pandas vs Polars                                                                       | Зачем они в проекте, нюансы использования                                      |
-| [GitVerse vs GitHub](https://magus1968.github.io/learning-sql/adv-gitverse/)           | GitVerse как резервное зеркало для основного хостинга, опыт использования      |
+| Раздел [^1]                                                                              | Описание                                                                       |
+| ---------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
+| [Установка MySQL](https://magus1968.github.io/learning-sql/adv-mysql/)                   | Разворачиваем локальную базу данных                                            |
+| Установка DBeaver                                                                        |                                                                                |
+| [SQLAlchemy & JupySQL](https://magus1968.github.io/learning-sql/adv-sqlalchemy-jupysql/) | Подключение к базе данных Sakila и запуск SQL в JupyterLab                     |
+| [Бенчмаркинг SQL-запросов](https://magus1968.github.io/learning-sql/adv-execute-time/)   | Реализация автоматического вывода времени выполнения SQL-запросов в JupyterLab |
+| VS Code vs JupyterLab                                                                    | Для каких задач удобнее VS Code, настройка VS Code под проект                  |
+| Pandas vs Polars                                                                         | Зачем они в проекте, нюансы использования                                      |
+| [GitVerse vs GitHub](https://magus1968.github.io/learning-sql/adv-gitverse/)             | GitVerse как резервное зеркало для основного хостинга, опыт использования      |
 
 [^1]: Разделы без ссылки в статусе **черновик** в личном Obsidian
+
+    Возможно целесообразно добавить разделы по установке [Anaconda](https://www.anaconda.com/docs/getting-started/anaconda/install/windows-gui-install), [Git](https://selectel.ru/blog/tutorials/how-to-install-git-to-windows/) и что-нибудь еще. Но это не точно.
