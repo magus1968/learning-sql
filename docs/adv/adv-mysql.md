@@ -7,12 +7,12 @@ subject: Technical Portfolio
 # subject: SQL Learning & Tooling
 venue: GitHub & GitVerse Pages
 abstract: |
-  В главе 2 Алан Болье предупреждает, что тема установки сервера MySQL выходит за рамки книги и установку нужно выполнить самостоятельно.
+  В главе 2 Алан Болье предупреждает, что тема установки сервера MySQL на компьютере читателя выходит за рамки книги и при необходимости установку нужно будет выполнить самостоятельно.
   
-  Данный раздел полностью **закрывает вопрос установки** на компьютер **сервера базы данных MySQL** и базы данных **Sakila**.
+  Данный раздел **закрывает вопрос установки** на компьютер пользователя **сервера базы данных MySQL** и базы данных **Sakila**.
 authors:
   - name: Alex Smirnov
-    email: a@smirnovs.pro
+    email: a9455440@gmail.com
     corresponding: true
     affiliations: Data & BI Analyst
 date: 2026-10-09
@@ -463,7 +463,6 @@ mysql> show databases;
 +--------------------+
 | Database           |
 +--------------------+
-| classicmodels      |
 | information_schema |
 | mysql              |
 | performance_schema |
@@ -521,9 +520,177 @@ mysql> quit
 
 Для завершения сеанса и закрытия консоли вводим `exit` (или `quit`) &rarr; {kbd}`Enter`.
 
+### Добавление в PATH
+
+Работать с базой данных через консольный клиент `mysql` можно не только через стандартные ярлыки **MySQL 8.0 Command Line Client**. Чтобы вызывать утилиту `mysql` напрямую из **любого** терминала в системе[^9] (CMD, PowerShell, Git Bash), достаточно добавить путь к исполняемым файлам СУБД в системную переменную Path.
+
+[^9]: В базовых руководствах эту настройку часто опускают, хотя она занимает пару минут и существенно упрощает повседневную работу: позволяет проверить статус базы или быстро накатить дамп прямо из консоли текущего проекта, не открывая внешние SQL-клиенты.
+
+Шаги настройки соответствуют фрагменту видеогайда [How to install MySQL...](https://www.youtube.com/watch?v=fzd6-qcLzrE) с отметки `4:44`:
+
+1. Скопировать путь к папке с исполняемыми файлами сервера: \
+    `C:\Program Files\MySQL\MySQL Server 8.0\bin`
+2. Открыть меню Пуск и начать вводить: *изменение системных переменных*.
+3. В результатах поиска выбрать **Изменение системных переменных среды**.
+4. В открывшемся окне **Свойства системы** на вкладке **Дополнительно** нажать кнопку **Переменные среды...**
+5. В окне **Переменные среды** в секции **Системные переменные** найти в списке строку с переменной **Path** → выделить ее и нажать **Изменить...**
+6. В окне **Изменить переменную среды** нажать кнопку **Создать** и вставить скопированный путь `C:\Program Files\MySQL\MySQL Server 8.0\bin`
+7. Нажать **ОК** во всех трех открытых окнах, чтобы применить и сохранить изменения.
+
+:::{important}
+Если до изменения переменной Path окна терминалов уже были открыты, их необходимо **закрыть и запустить заново**, чтобы операционная система применила обновленные переменные окружения.
+:::
+
+После этого путь пропишется в системе, и консольную утилиту `mysql` можно будет вызывать в любом терминале независимо от текущего рабочего каталога командой `mysql -u root -p`.
+
+Например, так выглядит вызов `mysql` с вводом пароля суперпользователя и просмотром базы **Sakila** в командной строке Windows (**CMD**) и в **Git Bash**:
+
+:::{code} cmd
+:filename: Command Prompt
+
+Microsoft Windows [Version 10.0.19044.7725]
+(c) Корпорация Майкрософт (Microsoft Corporation). Все права защищены.
+
+C:\Users\YOUR_USERNAME>mysql -u root -p
+Enter password: ********
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 9
+Server version: 8.0.46 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2026, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sakila             |
+| sys                |
+| world              |
++--------------------+
+8 rows in set (0.06 sec)
+
+mysql> use sakila;
+Database changed
+mysql> show full tables;
++----------------------------+------------+
+| Tables_in_sakila           | Table_type |
++----------------------------+------------+
+| actor                      | BASE TABLE |
+| actor_info                 | VIEW       |
+| address                    | BASE TABLE |
+| category                   | BASE TABLE |
+| city                       | BASE TABLE |
+| country                    | BASE TABLE |
+| customer                   | BASE TABLE |
+| customer_list              | VIEW       |
+| film                       | BASE TABLE |
+| film_actor                 | BASE TABLE |
+| film_category              | BASE TABLE |
+| film_list                  | VIEW       |
+| film_text                  | BASE TABLE |
+| inventory                  | BASE TABLE |
+| language                   | BASE TABLE |
+| nicer_but_slower_film_list | VIEW       |
+| payment                    | BASE TABLE |
+| rental                     | BASE TABLE |
+| sales_by_film_category     | VIEW       |
+| sales_by_store             | VIEW       |
+| staff                      | BASE TABLE |
+| staff_list                 | VIEW       |
+| store                      | BASE TABLE |
++----------------------------+------------+
+23 rows in set (0.01 sec)
+
+mysql> quit
+Bye
+:::
+
+:::{code} cmd
+:filename: Git Bash
+
+YOUR_USERNAME@COMPUTER MINGW64 ~
+$ mysql -u root -p sakila
+Enter password: ********
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 8
+Server version: 8.0.46 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2026, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> select database();
++------------+
+| database() |
++------------+
+| sakila     |
++------------+
+1 row in set (0.00 sec)
+
+mysql> status
+--------------
+mysql  Ver 8.0.46 for Win64 on x86_64 (MySQL Community Server - GPL)
+
+Connection id:          13
+Current database:       sakila
+Current user:           root@localhost
+SSL:                    Cipher in use is TLS_AES_256_GCM_SHA384
+Using delimiter:        ;
+Server version:         8.0.46 MySQL Community Server - GPL
+Protocol version:       10
+Connection:             localhost via TCP/IP
+Server characterset:    utf8mb4
+Db     characterset:    utf8mb4
+Client characterset:    cp866
+Conn.  characterset:    cp866
+TCP port:               3306
+Binary data as:         Hexadecimal
+Uptime:                 12 hours 55 min 30 sec
+
+Threads: 2  Questions: 29  Slow queries: 0  Opens: 164  Flush tables: 3  Open tables: 83  Queries per second avg: 0.000
+--------------
+
+mysql> CHECK TABLE film;
++-------------+-------+----------+----------+
+| Table       | Op    | Msg_type | Msg_text |
++-------------+-------+----------+----------+
+| sakila.film | check | status   | OK       |
++-------------+-------+----------+----------+
+1 row in set (0.03 sec)
+
+mysql> quit
+Bye
+:::
+
+**Почему добавление в PATH так ценно**.
+
+В папке `C:\Program Files\MySQL\MySQL Server 8.0\bin` лежит не только утилита `mysql`. Добавив этот путь в Path, мы получаем прямой доступ ко всему набору консольных инструментов:
+
+| Утилита    | Для чего используется                   | Пример команды в терминале                                                              |
+| ---------- | --------------------------------------- | --------------------------------------------------------------------------------------- |
+| mysql      | Работа с SQL-запросами                  | mysql -u root -p                                                                        |
+| mysqladmin | Быстрая проверка здоровья сервера       | mysqladmin -u root -p status<br>mysqladmin -u root -p ping (*ответит:* mysqld is alive) |
+| mysqlcheck | Проверка базы на ошибки без входа в SQL | mysqlcheck -u root -p sakila                                                            |
+| mysqldump  | Создание резервной копии (дампа)        | mysqldump -u root -p sakila > backup.sql                                                |
+
+Именно поэтому настройка Path – это не просто *косметика*, а открытие доступа ко всем инструментам администрирования прямо из рабочего терминала.
+
 ---
 
-## Что дальше
+## Что еще
 
 ::::{seealso} Тезисно.
 :class: simple dropdown
@@ -532,29 +699,21 @@ mysql> quit
 
 :::{div}
 :class: text-sm
-1. Отметка времени `4:44` из видео [How to install MySQL...](https://www.youtube.com/watch?v=fzd6-qcLzrE) от Amit Thinks, YouTube – добавление пути к папке `bin` сервера MySQL в системную переменную среды `Path` лично я сделал, хотя в других руководствах по установке не встречал. Добавление пути в переменную Path нужно для удобства: чтобы вызывать утилиту `mysql` напрямую из любой консоли (CMD, PowerShell, VS Code), а не только через стандартные ярлыки MySQL 8.0 Command Line Client или графические программы вроде DBeaver.
-
-Большинство авторов этот шаг игнорируют.
-- Стандартный путь: `C:\Program Files\MySQL\MySQL Server 8.0\bin`.
-- Это дает возможность проверить статус базы или быстро накатить дамп командой `mysql -u root -p < dump.sql` прямо из консоли проекта без необходимости открытия внешних SQL-клиентов.
-
----
-
-2. Запуск **MySQL Workbench** и открытие модели данных [sakila.mwb](https://dev.mysql.com/doc/sakila/en/sakila-installation.html) для изучения структуры данных (схемы связей) исследуемой базы данных.
+1. Запуск **MySQL Workbench** и открытие модели данных [sakila.mwb](https://dev.mysql.com/doc/sakila/en/sakila-installation.html) для изучения структуры данных (схемы связей) исследуемой базы данных.
     - Запустить MySQL Workbench и создать новое подключение к локальному серверу.
     - В верхнем меню выбрать **File** –> **Open Model** и указать путь к скачанному файлу `sakila.mwb`.
-    - Дважды кликнуть по иконке схемы в блоке **EER Diagrams**[^9] чтобы открыть интерактивную визуальную карту таблиц.
+    - Дважды кликнуть по иконке схемы в блоке **EER Diagrams**[^10] чтобы открыть интерактивную визуальную карту таблиц.
     - Изучить связи (внешние ключи) между ключевыми сущностями: `actor`, `film`, `customer` и `rental`.
 
-[^9]: **Enhanced Entity-Relationship Diagram** – расширенная диаграмма *сущность-связь*.
+[^10]: **Enhanced Entity-Relationship Diagram** – расширенная диаграмма *сущность-связь*.
 
     MySQL Workbench устанавливаем только для одной конкретной задачи – открыть файл `sakila.mwb` и наглядно увидеть схему связей (EER-диаграмму) учебной базы данных.
 
 ---
 
-3. [Скачивание](https://dev.mysql.com/doc/index-other.html) и [установка](https://dev.mysql.com/doc/sakila/en/sakila-installation.html) базы данных Sakila в случае, если сервер MySQL был установлен ранее без демонстрационной базы данных[^10].
+2. [Скачивание](https://dev.mysql.com/doc/index-other.html) и [установка](https://dev.mysql.com/doc/sakila/en/sakila-installation.html) базы данных Sakila в случае, если сервер MySQL был установлен ранее без демонстрационной базы данных[^11].
 
-[^10]: Правда нужно понять насколько подробно расписывать, т.к. Алан Болье повествует об этом в начале Главы 2.
+[^11]: Правда нужно понять насколько подробно расписывать, т.к. Алан Болье повествует об этом в начале Главы 2.
 
 ```cmd
 mysql -u root -p < sakila-schema.sql
