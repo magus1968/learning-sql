@@ -8,7 +8,7 @@ abstract: |
   По сути, я просто повторяю код из книги, чтобы лучше его запомнить и набить руку. _**Так я думал вначале.**_
 # authors:
 #   - name: Alex Smirnov
-#     email: a@smirnovs.pro
+#     email: a9455440@gmail.com
 #     corresponding: true
 #     affiliations: Data & BI Analyst
 # date: 2026-08-11

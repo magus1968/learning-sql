@@ -10,7 +10,7 @@ venue: GitHub & GitVerse Pages
 #   Расширение JupySQL подсвечивает синтаксис SQL в блокнотах Jupyter, но не на созданном в Jupyter Book сайте. Как обойти это недоразумение было показано в Главе 2. Здесь и далее подобным увлекаться не будем.
 authors:
   - name: Alex Smirnov
-    email: a@smirnovs.pro
+    email: a9455440@gmail.com
     corresponding: true
     affiliations: Data Analyst
       # - Data Analyst
