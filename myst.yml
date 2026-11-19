@@ -27,9 +27,18 @@ site:
   # actions:
     # - title: Портфолио
       # url: https://magus1968.github.io/Portfolio/
-  # options:
-  #   favicon: favicon.ico
-  #   logo: site_logo.png
+  options:
+    favicon: assets/site_logo.png # favicon.ico
+    logo: assets/site_logo.png
+    logo_text: SQL Lab в JupyterLab
+  # Навигация: ссылки - это веб-путь (URL-маршрут) внутри сгенерированного сайта `/website-metadata`
+  #            а не физический путь к файлу `/path/to/document`
   # nav:
     # - title: About
-    #   url: /docs/appx/about
+    #   url: /about
+    # - title: Быстрый старт
+    #   children:
+    #   - title: Исходные данные
+    #     url: /intro0-source
+    #   - title: Настройка рабочего пространства
+    #     url: /intro1-environment
