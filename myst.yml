@@ -22,7 +22,8 @@ extends:
 
 site:
   # template: article-theme
-  template: book-theme
+  # template: book-theme
+  template: https://github.com/myst-templates/book-theme/archive/23f2df5.zip
   # Кнопка в верхней панели сайта
   # actions:
     # - title: Портфолио
