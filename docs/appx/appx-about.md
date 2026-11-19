@@ -8,7 +8,7 @@ abstract: |
   Испытательный полигон для тестирования отображения MyST Markdown при физической сборке файлов движком Jupyter Book.
 # authors:
 #   - name: Alex Smirnov
-#     email: a@smirnovs.pro
+#     email: a9455440@gmail.com
 #     corresponding: true
 #     affiliations: Data & BI Analyst
 # date: 2026-08-11

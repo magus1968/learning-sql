@@ -10,7 +10,7 @@ venue: GitHub & GitVerse Pages
 #   Когда всё настроено, ежедневная работа сводится к простому циклу
 authors:
   - name: Alex Smirnov
-    email: a@smirnovs.pro
+    email: a9455440@gmail.com
     corresponding: true
     affiliations: Data & BI Analyst
 date: 2026-07-31

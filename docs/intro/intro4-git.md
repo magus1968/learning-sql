@@ -10,7 +10,7 @@ venue: GitHub & GitVerse Pages
 #   Забегая вперед отмечу, что чистый файл зависимостей `environment.yml` создать пришлось. Но, во-первых, на старте его не было, а во-вторых, это гайд как создать с нуля. Поехали.
 authors:
   - name: Alex Smirnov
-    email: a@smirnovs.pro
+    email: a9455440@gmail.com
     corresponding: true
     affiliations: Data & BI Analyst
 date: 2026-07-25

@@ -12,7 +12,7 @@ abstract: |
 #  Интеграция плагина `jupyterlab_execute_time` для достижения функционального паритета (эмуляции поведения) интерактивной среды Jupyter с консольным клиентом MySQL CLI.
 authors:
   - name: Alex Smirnov
-    email: a@smirnovs.pro
+    email: a9455440@gmail.com
     corresponding: true
     affiliations: Data & BI Analyst
 date: 2026-08-20

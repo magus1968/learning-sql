@@ -8,7 +8,7 @@ title: Быстрый старт
 #   Разворачиваем инфраструктуру и выбираем инструменты.
 # authors:
 #   - name: Alex Smirnov
-#     email: a@smirnovs.pro
+#     email: a9455440@gmail.com
 #     corresponding: true
 #     affiliations: Data & BI Analyst
 # date: 2026-08-11
