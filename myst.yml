@@ -23,6 +23,8 @@ extends:
 site:
   # template: article-theme
   # template: book-theme
+  # —→ Шаблон темы: 19.11.2026 после выпуска масштабного обновления `myst-theme 2.0.0` зафиксировал
+  #                 стабильную версию темы 1.4.1 (в репозитории соответствует слепку `23f2df5`):
   template: https://github.com/myst-templates/book-theme/archive/23f2df5.zip
   # Кнопка в верхней панели сайта
   # actions:
@@ -32,8 +34,8 @@ site:
     favicon: assets/site_logo.png # favicon.ico
     logo: assets/site_logo.png
     logo_text: SQL Lab в JupyterLab
-  # Навигация: ссылки - это веб-путь (URL-маршрут) внутри сгенерированного сайта `/website-metadata`
-  #            а не физический путь к файлу `/path/to/document`
+  # —→ Навигация: ссылки – это веб-путь (URL-маршрут) внутри сгенерированного сайта
+  #               `/website-metadata`, а не физический путь к файлу `/path/to/document`
   # nav:
     # - title: About
     #   url: /about
