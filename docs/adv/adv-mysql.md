@@ -1,5 +1,7 @@
 ---
 title: Установка MySQL
+label: mysql-setup
+thumbnail: null
 subtitle: SQL Lab in JupyterLab
 # license: CC-BY-4.0
 github: https://github.com/magus1968/learning-sql
@@ -40,6 +42,7 @@ abbreviations:
 
 ---
 
+(mysql-download)=
 ## Скачивание инсталлятора
 
 Для Windows воспользуемся инсталлятором [MySQL Installer](https://dev.mysql.com/downloads/installer/), на момент написания версией 8.0.46 (565.9M), чтобы за один раз установить совместимые версии:
@@ -71,6 +74,7 @@ abbreviations:
 
 ---
 
+(mysql-install)=
 ## Установка
 
 Запускаем скачанный инсталлятор. Поскольку по видеогайдам с процессом установки уже знакомы, чтобы проще контролировать процесс установки, далее будут зафиксированы только **чек-боксы необходимых параметров**, а **скриншоты** скрыты в раскрывающихся блоках.
@@ -98,6 +102,7 @@ abbreviations:
 
 ---
 
+(mysql-select-products)=
 ::::{note} Select Products
 :class: simple dropdown
 :open: false
@@ -171,6 +176,7 @@ abbreviations:
 
 ---
 
+(mysql-port-3306)=
 ::::{note} Type and Networking
 :class: simple dropdown
 :open: false
@@ -236,6 +242,7 @@ abbreviations:
 
 ---
 
+(mysql-windows-service)=
 ::::{note} Windows Service
 :class: simple dropdown
 :open: false
@@ -278,6 +285,7 @@ abbreviations:
 
 ---
 
+(mysql-data-dir)=
 ::::{note} Server File Permissions
 :class: simple dropdown
 :open: false
@@ -405,10 +413,12 @@ abbreviations:
 
 ---
 
+(mysql-verify)=
 ## Проверка установки
 
 Чтобы убедиться, что сервер MySQL работает корректно, и проверить доступ к базе данных **Sakila**, достаточно подключиться к СУБД через стандартный консольный клиент.
 
+(mysql-client-launch)=
 ### Запуск клиента
 
 Запустим утилиту через меню Windows: \
@@ -452,6 +462,7 @@ Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 mysql> 
 :::
 
+(mysql-check-sakila)=
 ### Проверка подключения
 
 Для просмотра доступных баз данных выполним команду `SHOW DATABASES;`:
@@ -520,6 +531,7 @@ mysql> quit
 
 Для завершения сеанса и закрытия консоли вводим `exit` (или `quit`) &rarr; {kbd}`Enter`.
 
+(mysql-path)=
 ### Добавление в PATH
 
 Работать с базой данных через консольный клиент `mysql` можно не только через стандартные ярлыки **MySQL 8.0 Command Line Client**. Чтобы вызывать утилиту `mysql` напрямую из **любого** терминала в системе[^9] (CMD, PowerShell, Git Bash), достаточно добавить путь к исполняемым файлам СУБД в системную переменную Path.
@@ -680,6 +692,7 @@ mysql> quit
 Bye
 :::
 
+(mysql-cli-tools)=
 **Почему добавление в PATH так ценно**.
 
 В папке `C:\Program Files\MySQL\MySQL Server 8.0\bin` лежит не только утилита `mysql`. Добавив этот путь в Path, мы получаем прямой доступ ко всему набору консольных инструментов:
@@ -695,6 +708,7 @@ Bye
 
 ---
 
+(mysql-extra)=
 ## Что еще
 
 ::::{seealso} Тезисно.

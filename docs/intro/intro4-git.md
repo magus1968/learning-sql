@@ -166,45 +166,6 @@ git push -u origin main
 :::
 ::::
 
-::::{tip} Кратко по SSH
-:class: dropdown
-:open: false
-**GitHub** в своей документации рекомендует:
-
----
-
-1. Генерировать SSH-ключ **ed25519**  
-[Generating a new SSH key](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key)
-```bash
-ssh-keygen -t ed25519 -C "your_email@example.com"`
-```
----
-
-2. Перед генерацией проверить наличие ключа в системе  
-[Checking for existing SSH keys](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/checking-for-existing-ssh-keys)  
-```bash
-$ ls -al ~/.ssh
-```
----
-                                                                    
-3. Добавить новый SSH-ключ в аккаунт GitHub  
-[Adding a new SSH key to your account](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
-
-:::{div}
-:class: text-xs
-Чтобы не ошибиться, что именно копировать, лучше _катануть_ содержимое публичного ключа в буфер обмена непосредственно в терминале **Git Bash**
-:::
-
-```bash
-cat id_ed25519.pub | clip
-```
-
-:::{div}
-:class: text-xs
-А то помню открыл ключ в **VS Code** и скопировал сначала без почты, потом без первой записи ssh-ed25519 и только на третий раз сообразил, что копировать нужно **всё** содержимое.
-:::
-::::
-
 ---
 
 ## 4.5 Кратко по SSH
@@ -235,5 +196,4 @@ cat id_ed25519.pub | clip
 ```
 :::
 
-
-
+---

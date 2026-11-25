@@ -1,5 +1,7 @@
 ---
 title: Бенчмаркинг SQL-запросов
+label: sql-benchmarking
+thumbnail: null
 subtitle: SQL Lab in JupyterLab
 # license: CC-BY-4.0
 github: https://github.com/magus1968/learning-sql
@@ -27,6 +29,7 @@ abbreviations:
     Polars: Мощный аналог Pandas на Rust/Python
 ---
 
+(exec-time-intro)=
 :::{dropdown} Бенчмаркинг в SQL
 :open:
 Это замер скорости выполнения запросов для оценки их эффективности. Мы фиксируем время работы каждой ячейки, чтобы наглядно сравнивать альтернативные варианты SQL-кода (например, работу `JOIN` против подзапроса).
@@ -34,6 +37,7 @@ abbreviations:
 
 ---
 
+(exec-time-auto)=
 ## Автозамер: JupyterLab Execute Time
 
 В текущей версии JupySQL класс [`SqlMagic`](https://github.com/ploomber/jupysql/blob/master/doc/api/configuration.md) не содержит встроенного флага для логирования времени выполнения самой СУБД. Однако в [документации](https://jupysql.readthedocs.io/en/latest/howto/benchmarking-time.html) предлагается решение через официальное расширение **`jupyterlab_execute_time`**, которое автоматически отображает время выполнения внизу каждой ячейки.
@@ -61,7 +65,7 @@ conda activate ds-book
 pip install jupyterlab_execute_time
 ```
 
-Так в итоговом файле [environment.yml](https://magus1968.github.io/learning-sql/intro1-environment/#id-1-4) появляется секция `pip`.
+Так в итоговом файле зависимостей [environment.yml](#env-yml-file) появляется секция `pip`.
 
 :::{dropdown} Весьма вероятно
 :open:
@@ -72,6 +76,7 @@ pip install jupyterlab_execute_time
 
 ---
 
+(exec-time-manual)=
 ## Ручной замер: магия `%%time`
 
 Поскольку JupySQL работает внутри Jupyter, мы можем комбинировать магические команды. Стандартная встроенная команда `%%time` замеряет время выполнения всей ячейки. Единственное условие: `%%time` всегда должна объявляться в ячейке **первой строкой**, перед `%%sql`.
@@ -98,6 +103,7 @@ Wall time: 45 ms
 
 ---
 
+(exec-time-summary)=
 ## Особенности и выводы
 
 1. Несмотря на возможность использования встроенной магии `%%time`, в проекте задействован плагин `jupyterlab_execute_time` – чтобы фиксация времени выполнения запроса происходила **автоматически**.

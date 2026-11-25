@@ -25,7 +25,7 @@ abbreviations:
     Polars: Мощный аналог Pandas на Rust/Python
 ---
 
-Забегая вперед отмечу, что чистый файл зависимостей `environment.yml` создать пришлось. Но, во-первых, на старте его не было, а во-вторых, это гайд как создать с нуля. Поехали.
+Забегая вперед отмечу, что чистый файл зависимостей {ref}`environment.yml <env-yml-file>` создать пришлось. Но, во-первых, на старте его не было, а во-вторых, это гайд как создать с нуля. Поехали.
 
 :::{attention} Внимание
 :class: simple
@@ -53,7 +53,7 @@ conda activate ds-book
 
 Однако, оказавшись за _стареньким_ дачным компом с нестабильным мобильным интернетом оказалось, что этот путь невозможен. Пришлось _почерепить_ что действительно может понадобиться и разбил задачу на три этапа.
 
-(create-env)=
+(env-create)=
 ## 1.1. Создание изолированного окружения
 
 ```{code} bash
@@ -99,38 +99,51 @@ conda activate ds-book
 
 ---
 
-(tools-and-connectors)=
+(env-tools-connectors)=
 ## 1.2. Установка инструментов верстки и коннекторов БД
 
 ```{code} bash
 # -- Этап 2 -- Anaconda Prompt: (ds-book) C:\Users\YOUR_USERNAME>
 # Установка в conda инструментов верстки и коннекторов БД
 
-conda install -c conda-forge jupyter-book mysql-connector-python ^
-  pymysql jupysql jupyterlab-myst
+conda install -c conda-forge jupyter-book pymysql jupysql jupyterlab-myst
 ```
 
 | Пакет                                                                                            | Версия в проекте | Назначение                                                                          |
 | ------------------------------------------------------------------------------------------------ | ---------------- | ----------------------------------------------------------------------------------- |
 | [Jupyter Book](https://jupyterbook.org/)                                                         | 2.1.6            | Для верстки сайта из файлов Markdown и блокнотов Jupyter                            |
-| [mysql-connector-python](https://pypi.org/project/mysql-connector-python/)                       | 9.7.0            | Драйвер базы данных MySQL для Python                                                |
+| [mysql-connector-python](https://pypi.org/project/mysql-connector-python/)                       | 9.7.0            | {ref}`Драйвер базы данных MySQL для Python <mysql-connector-python>`                |
 | [pymysql](https://pypi.org/project/PyMySQL/)                                                     | 1.2.0            | Драйвер-коннектор MySQL для SQLAlchemy                                              |
 | [JupySQL](https://jupysql.readthedocs.io/en/latest/quick-start.html)                             | 0.11.1           | Расширение для работы с SQL в ячейках Jupyter c поддержкой подсветки синтаксиса     |
 | [jupyterlab-execute-time](https://jupysql.readthedocs.io/en/latest/howto/benchmarking-time.html) | 3.3.0            | Плагин для вывода времени исполнения запроса в строке статуса ячейки Jupyter Lab    |
 | [jupyterlab_myst](https://mystmd.org/guide/quickstart-jupyter-lab-myst)                          | 2.7.0            | Визуальный плагин разметки MyST для Lab. Рендерит внутри интерфейса во время работы |
 
-:::{note} Примечание по плагину `jupyterlab_execute_time`
-:class: dropdown
-:open: true
-:icon: true
+(mysql-connector-python)=
+:::{note} `mysql-connector-python`
+Официальный драйвер от Oracle использовался на старте проекта при разборе {ref}`книги Элис Жао <landing-driver-choice>`. В основном стеке проекта вся работа с MySQL идет через `pymysql` + `sqlalchemy`, поэтому для работы по главам этот пакет **не требуется**.
+
+Он оставлен в проекте опционально – для отдельного разбора, где сравнивается *сырой* доступ к БД из Python (SQL в тройных кавычках, ручное управление курсором, закрытие сессии) с комфортной работой через через магию [`%%sql`](#run-sql-queries).
+    
+Если захотите воспроизвести этот пример позже, драйвер ставится отдельной командой:
+
+```bash
+# Anaconda Prompt: (base) C:\Users\YOUR_USERNAME>
+
+conda install -n ds-book -c conda-forge mysql-connector-python
+```
+:::
+
+
+:::{note} `jupyterlab_execute_time`
 
 Для автоматического вывода времени выполнения SQL-запросов в проекте используется интерфейсный плагин `jupyterlab_execute_time`. Из-за отставания версий в репозитории `conda-forge` плагин устанавливается через `pip`.
 
-Подробный разбор причин такого решения, сравнение с магической командой `%%time` и особенности отображения таймингов в Jupyter Book вынес в отдельный раздел [Бенчмаркинг SQL-запросов](https://magus1968.github.io/learning-sql/adv-execute-time/).
+Подробный разбор причин такого решения, сравнение с магической командой `%%time` и особенности отображения таймингов в Jupyter Book вынес в отдельный раздел [Бенчмаркинг SQL-запросов](#exec-time-auto).
 :::
 
 ---
 
+(env-polars)=
 ## 1.3.  Установка Polars
 
 Чтобы _неожиданно_ не получить в Jupyter Lab `Kernel Died` (как произошло у меня на _старом_ компе), хорошо бы знать какой на ПК процессор (CPU): 
@@ -138,7 +151,7 @@ conda install -c conda-forge jupyter-book mysql-connector-python ^
 - или _старый_ – без поддержки AVX2.
 
 :::{card}
-Установка Polars вынесена в отдельный раздел, чтобы разобрать _грабли_ с архитектурой процессоров и показать, почему по умолчанию в `environment.yml` зафиксирован вариант через `pip`, но оставлена возможность _переключиться_ на чистую `conda` для современного железа.
+Установка Polars вынесена отдельно, чтобы разобрать _грабли_ с архитектурой процессоров и показать, почему по умолчанию в `environment.yml` зафиксирован вариант через `pip`, но оставлена возможность _переключиться_ на чистую `conda` для современного железа.
 :::
 
 Из [официальной документации](https://docs.pola.rs/user-guide/installation/) установка производится через менеджер `pip`. 
@@ -286,18 +299,19 @@ print(pl.__version__)
 2. Самый свежий рантайм Polars ставим через `pip`, так как официальные каналы Conda не успевают за релизами PyPI под Python 3.12.
 :::
 
-Зачем понадобятся Pandas и Polars продемонстрировал в [Главе 3](https://magus1968.github.io/learning-sql/ch03/#id-2).
+Зачем понадобятся Pandas и Polars продемонстрировал в [Главе 3](#removing-duplicates).
 
 ---
 
+(env-export)=
 ## 1.4. Фиксация окружения
 
 Окружение создано, все требуемые пакеты установлены – на этом можно было бы настройку рабочего пространства завершить.
 
-Но это не наш метод. Потому что может сложиться ситуация, когда нам понадобится созданное окружение воссоздать. Поэтому потратим ещё какое-то количество времени и сохраним (зафиксируем) нашу работу в специальный файл зависимостей `environment.yml`.
+Но это не наш метод. Потому что может сложиться ситуация, когда нам понадобится созданное окружение воссоздать. Поэтому потратим ещё какое-то количество времени и сохраним (зафиксируем) нашу работу в специальный файл зависимостей {ref}`environment.yml <env-yml-file>`.
 
 - С одной стороны, поскольку `conda` создает окружения в своей системной папке `C:\Users\YOUR_USERNAME\anaconda3\envs`, нам не обязательно сейчас находиться в корне проекта. То есть можем создать файл зависимостей в любом месте, а уже потом перенести в папку проекта.
-- Однако по уму создавать `environment.yml` лучше все-таки сразу в корне проекта. Поэтому папку проекта создадим сразу.
+- Однако по уму создавать {ref}`environment.yml <env-yml-file>` лучше все-таки сразу в корне проекта. Поэтому папку проекта создадим сразу.
 
 ::::{note} Олдскульная привычка – отделять мух от котлет:
 :class: dropdown
@@ -330,10 +344,12 @@ mkdir Learning-SQL && cd Learning-SQL
 conda env export --no-builds > environment.yml
 ```
 
-После создания открываем `environment.yml` (например, в [VS Code](https://code.visualstudio.com/thank-you?dv=win64user)) и ... вручную убираем лишнее, корректируем, добавляем комментарии, чтобы получить чистый понятный завершенный вариант, готовый к развертыванию на любом компе
+После создания открываем `environment.yml` (например, в {ref}`VS Code <vscode-install>`) и ... вручную убираем лишнее, корректируем, добавляем комментарии, чтобы получить чистый понятный завершенный вариант, готовый к развертыванию на любом компе:
 
 :::{code} yaml
+:label: env-yml-file
 :filename: environment.yml
+
 name: ds-book
 channels:
   - conda-forge
@@ -355,7 +371,7 @@ dependencies:
   - scikit-learn>=1.9.0
   # Работа с БД
   - sqlalchemy>=2.0.51
-  - mysql-connector-python>=9.7.0
+  # - mysql-connector-python>=9.7.0     # опционально: драйвер из книги Элис Жао
   - pymysql=1.2.0
   - jupysql=0.11.1
   # Утилиты
@@ -369,6 +385,7 @@ dependencies:
 
 ---
 
+(env-reproduce)=
 ## 1.5. Воспроизведение окружения 
 
 При наличии файла `environment.yml` создание окружения на другом компе сводится к одной простой команде
@@ -380,6 +397,9 @@ dependencies:
 conda env create -f environment.yml
 :::
 
+---
+
+(env-checklist)=
 ## 1.6. Краткий чек-лист
 
 :::{code} bash
@@ -392,8 +412,7 @@ conda create --name ds-book -c conda-forge python=3.12 jupyterlab=4.4.7 ^
 conda activate ds-book
 
 # Этап 2: установка в conda инструментов верстки и коннекторов БД
-conda install -c conda-forge jupyter-book mysql-connector-python ^
-  pymysql jupysql jupyterlab-myst
+conda install -c conda-forge jupyter-book pymysql jupysql jupyterlab-myst
 
 # Этап 3: Установка Polars через менеджер `pip`
 pip install polars[rtcompat]

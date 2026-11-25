@@ -22,6 +22,7 @@ abbreviations:
     Polars: Мощный аналог Pandas на Rust/Python
 ---
 
+(project-init)=
 ## 2.1. Инициализация Jupyter Book
 
 _[Инициализируем](https://jupyterbook.org/stable/get-started/init/) Jupyter Book **БЕЗ** запуска локального веб-сервера_
@@ -58,6 +59,8 @@ You can build all content with: jupyter book build --all
 :::
 
 ---
+
+(project-structure)=
 ## 2.2. Создание структуры проекта
 
 Поскольку репозиторий ещё не инициализирован, по-прежнему можем использовать штатный Проводник Windows.
@@ -89,7 +92,8 @@ You can build all content with: jupyter book build --all
    ```
 
 ---
-       
+
+(project-jupyterlab)=
 ## 2.3. Jupyter Lab
 Для создания контента и настройки проекта будем использовать [Jupyter Lab](https://jupyterlab.readthedocs.io/en/latest/#). Удобнее запустить сервер Jupyter Lab в корне диска `D:\` – таким образом будет возможность перемещаться между проектами.
 
@@ -109,15 +113,17 @@ jupyter lab
 :::
 
 По завершении сеанса Jupyter Lab обязательно закрываем через **Shut Down**.  
-Если сервер в терминале сам не закрылся: {kbd}`Ctrl` + {kbd}`C` –> {kbd}`Y` –> {kbd}`Enter`.
+Если сервер в терминале сам не закрылся: {kbd}`Ctrl` + {kbd}`C`.  \
+Если не сработало: {kbd}`Ctrl` + {kbd}`Break`.
                                                                      
 ---
 
+(project-content)=
 ## 2.4. Создание контента
 
-Создаем обязательный [intro.md](https://jupyterbook.org/stable/get-started/create-content/). А может даже и первый блокнот `.ipynb` чтобы сразу визуально протестировать структуру  будущего сайта.
+Создаем [intro.md](https://jupyterbook.org/stable/get-started/create-content/) – корневой файл проекта, который станет **главной страницей** (**лендингом**) сайта. А может даже и первый блокнот `.ipynb` чтобы сразу визуально протестировать структуру  будущего сайта.
 
-:::{code} markdown
+:::{code} text
 :filename: intro.md
 # Introduction
 
@@ -125,6 +131,8 @@ I am a book about ... something!
 :::
 
 ---
+
+(project-config)=
 ## 2.5. Настройка проекта
 
 - Конфигурационный файл [myst.yml](https://jupyterbook.org/stable/build-and-publish/website/)
@@ -144,63 +152,127 @@ I am a book about ... something!
 :::
 
 :::{code} yaml
+:label: project-myst-yml
 :filename: myst.yml
 
 # See docs at: https://mystmd.org/guide/frontmatter
 version: 1
 project:
   id: 4da9cb15-177c-41f5-8c4e-6a24b4e87eab
-  # title: An example Jupyter Book
+  title: SQL Lab в JupyterLab     # An example Jupyter Book
   # description: A collection of files that build up a book
-  keywords:
-    - jupyter-book
-    - something-else
+  # keywords:   # убрал, чтобы не отображались в `abstract`
+    # - jupyter-book
+    # - data-science
+    # - sql
+    # - something-else
   authors:
     - name: Jo the Jovyan
     - name: Planet Jupyter
   github: captain-jupyter/my-book
   # plugins: []
-
-  extends:                    # содержание в отдельный файл
-  - toc.yml                   # файл содержания (table of contents)
+  
+  # Файл оглавления – внешний (отдельный)
+  extends:
+  - toc.yml                   # table of contents
 
 site:
   # template: article-theme
-  template: book-theme
+  # template: book-theme
+  # —— Шаблон темы: ——
+  # 19.11.2026 после выпуска масштабного обновления `myst-theme 2.0.0` зафиксировал
+  #    стабильную версию темы 1.4.1 (в репозитории соответствует слепку `23f2df5`):
+  template: https://github.com/myst-templates/book-theme/archive/23f2df5.zip
+  # Кнопка в верхней панели сайта
+  # actions:
+    # - title: Портфолио
+      # url: https://magus1968.github.io/Portfolio/
   # title:
-  # options:
-  #   favicon: favicon.ico
-  #   logo: site_logo.png     # или site-logo.svg
-  nav:                        # навигация верхнего уровня
-    - title: Internal page
-      url: /website-metadata
-  actions:                    # кнопки действий в заголовке сайта
-    - title: Learn More
-      url: https://mystmd.org/guide
+  options:
+    favicon: assets/site_logo.png # favicon.ico
+    logo: assets/site_logo.png
+    logo_text: SQL Lab в JupyterLab
+  # —— Навигация: ——
+  #    ссылки – это веб-путь (URL-маршрут) внутри сгенерированного сайта
+  #   `/website-metadata`, а не физический путь к файлу `/path/to/document`
+  # nav:
+    # - title: About
+    #   url: /about
+    # - title: Быстрый старт
+    #   children:
+    #   - title: Исходные данные
+    #     url: /intro0-source
+    #   - title: Настройка рабочего пространства
+    #     url: /intro1-environment
   # domains: []
 :::
 
 :::{code} yaml
+:label: project-toc-yml
 :filename: toc.yml
 
 version: 1
 project:
-  toc:
-    # Главная страница
-    - file: docs/index.md
-    # Get started
-    - title: Быстрый старт
-      children:
-        - file: docs/intro/intro-source.md
-        - file: docs/intro/intro1-environment.md
-        - file: docs/intro/intro2-project.md
-        - file: docs/intro/intro3-start.md
-    # Глава 2
-    - title: Глава 2. Создание и наполнение базы данных
-      file: docs/ch02.ipynb
-    # Глава 3
-    - title: Глава 3. Запросы
-      file: docs/ch03.ipynb
+  toc:
+    # Главная страница
+    - file: docs/intro.md
+    # Get started
+    - title: Быстрый старт
+      file: docs/intro/intro-about.md
+      children:
+        - file: docs/intro/intro0-source.md
+        - file: docs/intro/intro1-environment.md
+        - file: docs/intro/intro2-project.md
+        - file: docs/intro/intro3-start.md
+        - file: docs/intro/intro4-git.md
+        - file: docs/intro/intro5-deploy.md
+        - file: docs/intro/daily-workflow.md
+    # Advanced Setup
+    - title: Advanced Setup
+      file: docs/adv/adv-about.md
+      children:
+        - file: docs/adv/adv-mysql.md
+        - file: docs/adv/adv-sqlalchemy-jupysql.ipynb
+        - file: docs/adv/adv-execute-time.md
+        - file: docs/adv/adv-vscode.ipynb
+        - file: docs/adv/adv-gitverse.md
+    # Chapters
+    - title: Главы
+      file: docs/chapters/ch-about.md
+      children:
+        - title: Глава 2. Создание и наполнение базы данных
+          file: docs/chapters/ch02.ipynb
+        - title: Глава 3. Запросы
+          file: docs/chapters/ch03.ipynb
+        - title: Глава 4. Фильтрация
+          file: docs/chapters/ch04.ipynb
+        - title: Глава 5. Запросы к нескольким таблицам
+          file: docs/chapters/ch05.ipynb
+        - title: Глава 6. Работа с множествами
+          file: docs/chapters/ch06.ipynb
+        - title: Глава 7. Генерация, обработка и преобразование данных
+          file: docs/chapters/ch07.ipynb
+        - title: Глава 8. Группировка и агрегация
+          file: docs/chapters/ch08.ipynb
+        - title: Глава 9. Подзапросы
+          file: docs/chapters/ch09.ipynb
+        - title: Глава 10. Соединения
+          file: docs/chapters/ch10.ipynb
+        - title: Глава 11. Условная логика
+          file: docs/chapters/ch11.ipynb
+        # Схема Sakila
+        - title: Sakila
+          file: docs/chapters/sakila.md
+        # Предметный указатель
+        - title: Index
+          file: docs/chapters/index.ipynb
+    # Appendix
+    - title: Appendix
+      file: docs/appx/appx-about.md
+      children:
+        - file: docs/appx/about.md
+        - file: docs/appx/sandbox.ipynb
+        - file: docs/appx/simulative.ipynb
 :::
 
 ---

@@ -45,7 +45,7 @@ $ git commit -m "docs: finished chapter 2"
 $ git push                              # отправка изменений на GitHub
 :::
 
-В JupyterLab открываете блокнот `.ipynb` → {ref}`подключаетесь к базе данных <connection-init>` → пишете и {ref}`запускаете SQL-запросы <run-sql-queries>`.
+В {ref}`JupyterLab <project-jupyterlab>` открываем блокнот `.ipynb` → {ref}`подключаемся к базе данных <connection-init>` → пишем и {ref}`запускаем SQL-запросы <run-sql-queries>`.
 
 ---
 
